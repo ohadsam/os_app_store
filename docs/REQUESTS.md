@@ -7,7 +7,7 @@ Owner's brief, 2026-11-24 (Hebrew, voice dictated). Status: done / partial / ope
 4. Looks like a real store: links, search, filtering, tags, what each app is. **done**
 5. Always points to the latest version and shows it. **done** (catalog + `sync-catalog` + daily workflow)
 6. The store's release checklist checks every app for needed updates and updates the store. **done** (release-checklist step + sync script)
-7. Other apps' release checklists must update the store the same way. **partial**: ready-to-paste step + patch script (`docs/APP_RELEASE_STEP.md`); not pushed into the other repos (needs the owner's go-ahead, repos are separate)
+7. Other apps' release checklists must update the store the same way. **done** (2026-11-24, owner approved): step added to the release-checklist of StepUp, SonRise, FindMyCar, Special Events, SmartRing, ClockWise, Extended File Manager, System Designer, Tehilim Daily (also in the two copies of the generic checklist), and to `AGENT.md` (Itim) / `CLAUDE.md` (Seating Planner), which have no checklist file. Pushed to `main` of each repo with `[skip ci]` (docs only)
 8. A release-checklist file; use the app-creation skill (PWA only); same standards, tests, Playwright display tests. **done**
 9. Screenshots from the apps (run their tests) inside each description. **partial**: 6 web apps done; 5 native apps need a device
 10. Release dates, update dates, copyright, "all images from various AI tools; contact if a problem". **done**
