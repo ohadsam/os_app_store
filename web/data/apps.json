@@ -1614,10 +1614,12 @@
    "links": {
     "releases": "https://github.com/ohadsam/Tehilim_Daily/releases/latest",
     "repo": "https://github.com/ohadsam/Tehilim_Daily",
-    "changelog": "https://github.com/ohadsam/Tehilim_Daily/blob/main/docs/CHANGELOG.md"
+    "changelog": "https://github.com/ohadsam/Tehilim_Daily/blob/main/docs/CHANGELOG.md",
+    "apk": "https://github.com/ohadsam/Tehilim_Daily/releases/latest/download/tehilim-daily.apk",
+    "sha": "https://github.com/ohadsam/Tehilim_Daily/releases/latest/download/tehilim-daily.apk.sha256"
    },
    "apk": {
-    "state": "page",
+    "state": "direct",
     "pkg": "com.ohadsam.tehilim",
     "minAndroid": 8,
     "private": true,
