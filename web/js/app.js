@@ -9,6 +9,7 @@ import { homePage } from './ui/home.js';
 import { detailPage } from './ui/detail.js';
 import { guidePage } from './ui/guide.js';
 import { aboutPage } from './ui/about.js';
+import { settingsPage } from './ui/settings.js';
 import { art } from './ui/art.js';
 
 let catalog = null, offline = false;
@@ -28,18 +29,19 @@ function shell() {
     h('div', { class: 'top-actions' },
       h('button', { class: 'icon-btn', type: 'button', 'aria-label': `${t('top.theme')}: ${t(`theme.${th}`)}`, title: t(`theme.${th}`), onclick: () => { setTheme(THEMES[(THEMES.indexOf(th) + 1) % 3]); applyTheme(); shell(); } }, icon(th === 'dark' ? 'moon' : 'sun')),
       h('button', { class: 'btn btn-ghost lang-btn', type: 'button', lang: getLanguage() === 'he' ? 'en' : 'he', 'aria-label': t('top.langLabel'), onclick: () => { setLanguage(getLanguage() === 'he' ? 'en' : 'he'); render(); } }, icon('globe'), t('top.lang'))));
-  setChildren($('#bottomnav'), navLink('#/', 'nav.store', 'store', route === '' || route === 'app'), navLink('#/guide', 'nav.guide', 'book', route === 'guide'), navLink('#/about', 'nav.about', 'info', route === 'about'));
+  setChildren($('#bottomnav'), navLink('#/', 'nav.store', 'store', route === '' || route === 'app'), navLink('#/guide', 'nav.guide', 'book', route === 'guide'), navLink('#/settings', 'nav.settings', 'settings', route === 'settings'), navLink('#/about', 'nav.about', 'info', route === 'about'));
   setChildren($('#footer'), h('p', null, t('footer.rights', { year: new Date().getFullYear() })), h('p', null, t('footer.ai'), ' ', h('a', { href: '#/about' }, t('footer.about'))));
 }
 
 function render() {
-  applyLang(); shell();
+  applyLang(); applyTheme(); shell();
   const main = $('#app'), parts = (location.hash.slice(1) || '/').split('/');
   if (!catalog) { setChildren(main, h('section', { class: 'page empty' }, art('states/load-error', { w: 180, h: 135 }), h('p', { class: 'note' }, t('load.error')), h('button', { class: 'btn btn-primary', type: 'button', onclick: boot }, t('retry')))); return; }
   let view;
   if (parts[1] === 'app' && parts[2]) view = detailPage(catalog, parts[2]);
   else if (parts[1] === 'guide') view = guidePage();
   else if (parts[1] === 'about') view = aboutPage(catalog);
+  else if (parts[1] === 'settings') view = settingsPage(render);
   else view = homePage(catalog, render);
   setChildren(main, offline ? h('p', { class: 'note offline' }, art('states/offline', { w: 48, h: 36, cls: 'inline' }), t('offline')) : null, view);
   if (!(parts[1] === 'app' && parts[2])) document.title = t('app.title');

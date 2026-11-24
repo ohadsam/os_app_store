@@ -5,7 +5,7 @@ import { phone } from './mock.js';
 import { art } from './art.js';
 
 export const FLOWS = {
-  android: [['a1', 'download'], ['a2', 'opened'], ['a3', 'blocked'], ['a4', 'allow'], ['a5', 'install'], ['a6', 'protect'], ['a7', 'done']],
+  android: [['a1', 'download'], ['a2', 'opened'], ['a3', 'blocked'], ['a4', 'allow'], ['a5', 'install'], ['a6', 'protect'], ['a6b', 'blockedMore'], ['a7', 'done'], ['a8', 'permission']],
   pwa: [['p1', 'download'], ['p2', 'chromeMenu'], ['p3', 'pwaPrompt']],
   ios: [['i1', 'download'], ['i2', 'safariShare'], ['i3', 'iosAdd']],
 };
@@ -22,6 +22,12 @@ export function flowSection(flow, ctx, open = false) {
   const d = h('details', { class: 'flow', open }, h('summary', null, t(title)), steps(flow, ctx));
   return d;
 }
+export const TROUBLE = ['t1', 't2', 't3', 't4', 't5', 't6', 't7', 't8', 't9'];
+/** Collapsible "something is not working" list (one <details> per problem). */
+export function troubleSection() {
+  return h('section', { class: 'trouble', 'aria-labelledby': 'h-trouble' }, h('h2', { id: 'h-trouble', class: 'sec' }, t('trouble.title')), h('p', { class: 'muted' }, t('trouble.sub')),
+    TROUBLE.map((k) => h('details', { class: 'flow tr' }, h('summary', null, t(`${k}.t`)), h('p', { class: 'tr-body' }, t(`${k}.d`)))));
+}
 export function guidePage() {
   const ctx = { name: 'App', file: 'app.apk', host: 'github.com', icon: 'icon.svg' };
   return h('section', { class: 'page guide' },
@@ -30,5 +36,6 @@ export function guidePage() {
     h('div', { class: 'callout' }, h('b', null, t('guide.why')), h('p', null, t('guide.whyText'))),
     h('p', { class: 'muted' }, t('guide.mockNote')),
     flowSection('android', ctx, true), flowSection('pwa', ctx), flowSection('ios', ctx),
-    h('div', { class: 'callout' }, h('b', null, t('guide.update')), h('p', null, t('guide.updateText'))));
+    h('div', { class: 'callout' }, h('b', null, t('guide.update')), h('p', null, t('guide.updateText'))),
+    troubleSection());
 }

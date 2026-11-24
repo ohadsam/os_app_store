@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.0
+- Every Android app page now lists its permissions from its real manifest, in three groups (asked in a pop-up / need a Settings screen / granted automatically), with what each is for and exactly what to tap; plus per-app setup notes (background location, battery, Autostart, alarms...).
+- Install guide: new steps for expanding "More details" in the Play Protect dialog and for the first-launch permission prompts; new collapsible troubleshooting list (Chrome block, Play Protect, unknown sources, Samsung Auto Blocker, Xiaomi, package conflict, restricted settings, work profile, background limits), shown on the guide and on every APK app page.
+- New Settings page: language (Hebrew default / English), appearance, reset of favourites and install marks.
+
 ## 1.1.0
 - New AI-made visuals: store logo/icon, hero banner, page background, empty/offline/error/coming-soon illustrations, install-guide strip and category icons (light + dark).
 

@@ -101,3 +101,11 @@ body{background-image:url(../art/store/bg/bg-light.svg)}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) body{background-image:url(../art/store/bg/bg-dark.svg)}}
 :root[data-theme=dark] body{background-image:url(../art/store/bg/bg-dark.svg)}
 .hero{padding-block-start:116px;min-block-size:250px}@media (min-width:720px){.hero{padding-block-start:130px}}
+
+/* permissions, troubleshooting, settings */
+.perms{list-style:none;padding:0;margin:8px 0 12px;display:flex;flex-direction:column;gap:10px}.perm{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}.perm p{margin:0}.lbl{font-weight:700;color:var(--muted)}.perm-how{background:var(--surface2);border-radius:8px;padding:6px 8px}
+.perm-group{margin-block-end:8px}.perm-group>summary{cursor:pointer;font-weight:700;min-block-size:var(--tap);display:flex;align-items:center}.perm-group h3{margin-block:8px 0}
+.trouble{display:flex;flex-direction:column;gap:8px}.tr .tr-body{padding-block-end:12px;margin:0}.tr>summary{font-weight:600}
+.fs{border:1px solid var(--line);margin:0;min-inline-size:0}.fs legend{font-weight:800;padding-inline:6px}.radio{display:flex;align-items:center;gap:10px;min-block-size:var(--tap);cursor:pointer}.radio input{inline-size:22px;block-size:22px}
+.m-more{display:inline-block;padding:4px 8px;border-radius:6px;font-weight:700}
+.nav-link{font-size:.72rem}

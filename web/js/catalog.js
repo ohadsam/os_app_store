@@ -6,10 +6,12 @@ const locList = (o) => ({ he: (o?.he || []).slice(0, 12).map((s) => str(s, 240))
 const httpsOrNull = (u) => (typeof u === 'string' && /^https:\/\/[^\s]+$/.test(u) ? u : null);
 const date = (d) => (/^\d{4}-\d{2}-\d{2}$/.test(d) ? d : '');
 
+export const PERM_LEVELS = ['ask', 'special', 'auto'];
 export function normalizeCatalog(raw) {
-  const tags = {}, cats = {};
+  const tags = {}, cats = {}, perms = {};
   for (const [k, v] of Object.entries(raw?.tags || {})) tags[k] = loc(v, 40);
   for (const [k, v] of Object.entries(raw?.categories || {})) cats[k] = { ...loc(v, 40), icon: str(v?.icon, 4) };
+  for (const [k, v] of Object.entries(raw?.permissions || {})) perms[k] = { level: PERM_LEVELS.includes(v?.level) ? v.level : 'ask', name: loc(v?.name, 80), what: loc(v?.what, 200), how: loc(v?.how, 500) };
   const apps = (raw?.apps || []).filter((a) => /^[a-z0-9-]{1,40}$/.test(a?.id || '')).map((a) => ({
     id: a.id, name: loc(a.name, 60), tagline: loc(a.tagline, 140), description: loc(a.description, 900),
     highlights: locList(a.highlights), whatsNew: locList(a.whatsNew),
@@ -20,9 +22,11 @@ export function normalizeCatalog(raw) {
     icon: str(a.icon, 80), color: /^#[0-9a-fA-F]{6}$/.test(a.color || '') ? a.color : '#4f46e5',
     links: { web: httpsOrNull(a.links?.web), apk: httpsOrNull(a.links?.apk), sha: httpsOrNull(a.links?.sha), releases: httpsOrNull(a.links?.releases), repo: httpsOrNull(a.links?.repo), changelog: httpsOrNull(a.links?.changelog), guide: httpsOrNull(a.links?.guide) },
     apk: { state: ['direct', 'page', 'none'].includes(a.apk?.state) ? a.apk.state : 'none', pkg: str(a.apk?.pkg, 80), minAndroid: Number.isInteger(a.apk?.minAndroid) ? a.apk.minAndroid : 8, private: a.apk?.private === true, note: loc(a.apk?.note, 300) },
+    permissions: (a.permissions || []).filter((p) => Object.hasOwn(perms, p?.id)).slice(0, 20).map((p) => ({ id: p.id, why: loc(p.why, 240), how: loc(p.how, 500) })),
+    setup: locList(a.setup),
     shots: (a.shots || []).slice(0, 8).map((s) => ({ file: str(s.file, 80), caption: loc(s.caption, 80) })).filter((s) => /^art\/shots\/[a-z0-9-]+\/[\w.-]+\.(jpg|png|webp)$/.test(s.file)),
   }));
-  return { generated: date(raw?.generated), tags, categories: cats, apps };
+  return { generated: date(raw?.generated), tags, categories: cats, permissions: perms, apps };
 }
 
 const strip = (s) => s.toLowerCase().replace(/[֑-ׇ]/g, '').replace(/["'׳״`]/g, '');

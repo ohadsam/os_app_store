@@ -30,13 +30,13 @@ async function axeClean(page, label) {
   assert.equal(r.violations.length, 0, `${label}: ${r.violations.map((v) => `${v.id} (${v.nodes.length}) ${v.nodes[0]?.target}`).join('; ')}`);
 }
 const noOverflow = async (page, label) => assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${label}: horizontal scroll`);
-const ROUTES = ['#/', '#/app/stepup', '#/app/smartring', '#/app/tehilim', '#/guide', '#/about'];
+const ROUTES = ['#/', '#/app/stepup', '#/app/smartring', '#/app/tehilim', '#/app/kodesh', '#/guide', '#/about', '#/settings'];
 
 await step('boot: Hebrew RTL store with every app, hero, nav, footer, no errors', async () => {
   const { page, errors, ctx } = await newPage();
   assert.equal(await page.evaluate(() => document.documentElement.dir), 'rtl'); assert.equal(await page.evaluate(() => document.documentElement.lang), 'he');
   assert.equal(await allCards(page), APPS.length); assert.match(await page.title(), /OS APPs and Downs/);
-  assert.ok((await page.locator('#footer').innerText()).includes('כל הזכויות שמורות')); assert.equal(await page.locator('#bottomnav a').count(), 3);
+  assert.ok((await page.locator('#footer').innerText()).includes('כל הזכויות שמורות')); assert.equal(await page.locator('#bottomnav a').count(), 4);
   assert.ok(await imagesOk(page, '.card .app-icon'), 'icons loaded');
   assert.deepEqual(errors, []); await ctx.close();
 });
@@ -79,7 +79,7 @@ await step('app page: hero, links, screenshots + lightbox, what is new, info, sh
   assert.ok(await imagesOk(page, '.shots img'), 'screenshots loaded'); assert.ok(await page.locator('.shots img').count() >= 4);
   await page.click('.shot >> nth=1'); await page.waitForSelector('dialog.lightbox[open]'); assert.match(await page.locator('.lb-cap').innerText(), /2\/\d/); await page.keyboard.press('ArrowLeft'); await page.keyboard.press('Escape'); await page.waitForSelector('dialog.lightbox', { state: 'detached' });
   const more = page.locator('.inst .more').first(); assert.equal(await more.getAttribute('aria-expanded'), 'false'); await more.click(); assert.equal(await more.getAttribute('aria-expanded'), 'true');
-  assert.equal(await page.locator('.inst .steps .step').count(), 7); assert.ok(await page.locator('.phone').first().isVisible());
+  assert.equal(await page.locator('.inst .steps .step').count(), 9); assert.ok(await page.locator('.phone').first().isVisible());
   assert.ok((await page.locator('.info').innerText()).includes('0.31')); await page.click('text=סימון: התקנתי את הגרסה הזו'); assert.ok(await page.locator('text=סימנתם גרסה').count());
   await page.click('.back'); assert.equal(await page.locator('.card[data-app="stepup"] .badge.b-upd').count(), 0);
   assert.deepEqual(errors, []); await ctx.close();
@@ -102,11 +102,38 @@ await step('every app page renders without errors, with loaded images and a work
   await page.goto(`${base}#/app/does-not-exist`); await page.reload(); await page.waitForSelector('.page h1'); assert.ok((await page.locator('.page h1').innerText()).includes('לא נמצאה'));
   assert.deepEqual(errors, []); await ctx.close();
 });
+await step('permissions + setup: every Android app lists what it asks for, in three groups, with what to tap', async () => {
+  const { page, ctx } = await newPage({ hash: '#/app/findmycar' });
+  const sec = page.locator('section[aria-labelledby="h-perm"]'); assert.ok(await sec.count());
+  const txt = await sec.innerText(); assert.ok(txt.includes('מיקום ברקע') && txt.includes('אפשר כל הזמן') && txt.includes('מה מקישים'), 'background location explained with what to tap');
+  assert.ok(await sec.locator('h3').count() >= 2); assert.ok(await sec.locator('details.perm-group').count() === 1, 'auto permissions collapsed');
+  await page.goto(`${base}#/app/special-events`); await page.reload(); await page.waitForSelector('section[aria-labelledby="h-perm"]');
+  const se = await page.locator('section[aria-labelledby="h-perm"]').innerText(); assert.ok(se.includes('שליחת SMS') && se.includes('אנשי קשר') && se.includes('יומן'));
+  await page.goto(`${base}#/app/seating`); await page.reload(); await page.waitForSelector('section[aria-labelledby="h-perm"]'); assert.ok(await page.locator('section[aria-labelledby="h-perm"] .note').count(), 'a website asks for nothing special');
+  await ctx.close();
+});
+await step('install troubleshooting: nine collapsible problems on the guide and on every APK app page', async () => {
+  const { page, ctx } = await newPage({ hash: '#/guide' });
+  assert.equal(await page.locator('.trouble details').count(), 9); await page.locator('.trouble summary').nth(1).click();
+  assert.ok((await page.locator('.trouble details[open]').innerText()).includes('פרטים נוספים'));
+  await page.goto(`${base}#/app/smartring`); await page.reload(); await page.waitForSelector('.detail h1'); assert.equal(await page.locator('.trouble details').count(), 9);
+  await page.goto(`${base}#/app/seating`); await page.reload(); await page.waitForSelector('.detail h1'); assert.equal(await page.locator('.trouble').count(), 0); await ctx.close();
+});
+await step('settings: Hebrew by default, switch to English and back, theme, reset of favourites', async () => {
+  const { page, ctx } = await newPage({ hash: '#/settings' });
+  assert.equal(await page.locator('input[name=lang]:checked').getAttribute('value'), 'he'); assert.equal(await page.evaluate(() => document.documentElement.lang), 'he');
+  await page.check('input[name=lang][value=en]'); assert.equal(await page.evaluate(() => document.documentElement.dir), 'ltr'); assert.equal(await page.locator('.settings h1').innerText(), 'Settings');
+  await page.reload(); await page.waitForSelector('.settings h1'); assert.equal(await page.locator('input[name=lang]:checked').getAttribute('value'), 'en');
+  await page.check('input[name=lang][value=he]'); assert.equal(await page.evaluate(() => document.documentElement.lang), 'he');
+  await page.check('input[name=theme][value=dark]'); assert.equal(await page.evaluate(() => document.documentElement.dataset.theme), 'dark');
+  await page.evaluate(() => localStorage.setItem('os.favs', JSON.stringify(['stepup']))); page.once('dialog', (d) => d.accept()); await page.click('text=איפוס מועדפות');
+  assert.equal(await page.evaluate(() => localStorage.getItem('os.favs')), '[]'); assert.ok(await page.locator('.toast').count()); await ctx.close();
+});
 await step('guide page: three flows with the right number of steps, why-warnings box, update note', async () => {
   const { page, ctx } = await newPage({ hash: '#/guide' });
-  const flows = page.locator('.flow'); assert.equal(await flows.count(), 3); assert.equal(await page.locator('.flow >> nth=0').getAttribute('open'), '');
+  const flows = page.locator('details.flow:not(.tr)'); assert.equal(await flows.count(), 3); assert.equal(await flows.nth(0).getAttribute('open'), '');
   await flows.nth(1).locator('summary').click(); await flows.nth(2).locator('summary').click();
-  assert.deepEqual(await flows.evaluateAll((l) => l.map((f) => f.querySelectorAll('.step').length)), [7, 3, 3]); assert.ok(await page.locator('.callout').count() >= 2); await ctx.close();
+  assert.deepEqual(await flows.evaluateAll((l) => l.map((f) => f.querySelectorAll('.step').length)), [9, 3, 3]); assert.ok(await page.locator('.callout').count() >= 2); await ctx.close();
 });
 await step('about page: copyright, AI-images notice, contact link, store version and update check', async () => {
   const { page, ctx } = await newPage({ hash: '#/about' }); const txt = await page.locator('.about').innerText();

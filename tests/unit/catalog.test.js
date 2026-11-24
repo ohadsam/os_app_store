@@ -69,3 +69,21 @@ test('the AI-made store art is complete: every art pair, category icon and hero 
   const files = [...['states/no-results', 'states/offline', 'states/load-error', 'states/coming-soon', 'install/download', 'install/allow-once', 'install/done'].flatMap((n) => [`${n}-light`, `${n}-dark`]), 'home/hero-light', 'home/hero-dark', 'bg/bg-light', 'bg/bg-dark', ...Object.keys(raw.categories).map((c) => `categories/cat-${c}`)];
   for (const f of files) { const p = `web/art/store/${f}.svg`; assert.ok(existsSync(p), p); const s = readFileSync(p, 'utf8'); assert.ok(s.length < 12000, `${p} too big`); assert.ok(!/<(text|image|filter|style|script|foreignObject)\b/i.test(s), `${p} has a forbidden element`); assert.ok(!/(href|url)\(?=?["']?https?:/i.test(s), `${p} references the network`); }
 });
+
+test('permissions: a documented dictionary, valid ids per app, and a reason for every prompt', () => {
+  for (const [id, v] of Object.entries(raw.permissions)) { assert.ok(['ask', 'special', 'auto'].includes(v.level), `${id} level`); for (const k of ['name', 'what', 'how']) assert.ok(v[k].he?.length > 2 && v[k].en?.length > 2, `permission ${id}.${k} he+en`); }
+  for (const a of raw.apps) {
+    assert.ok(Array.isArray(a.permissions), `${a.id} permissions list`);
+    for (const p of a.permissions) {
+      assert.ok(Object.hasOwn(raw.permissions, p.id), `${a.id} unknown permission ${p.id}`); const level = raw.permissions[p.id].level;
+      if (level !== 'auto') assert.ok((p.why?.he || '').length > 5 && (p.why?.en || '').length > 5, `${a.id}/${p.id} needs a reason in both languages`);
+    }
+    assert.equal(new Set(a.permissions.map((p) => p.id)).size, a.permissions.length, `${a.id} duplicate permission`);
+    assert.equal(a.setup.he.length, a.setup.en.length, `${a.id} setup notes in both languages`);
+  }
+  const by = (id) => cat.apps.find((a) => a.id === id);
+  assert.ok(by('findmycar').permissions.some((p) => p.id === 'background_location')); assert.ok(by('special-events').permissions.some((p) => p.id === 'sms'));
+  assert.equal(cat.apps.length, raw.apps.length); assert.ok(Object.keys(cat.permissions).length >= 15);
+  const bad = normalizeCatalog({ categories: { tools: { he: 'a', en: 'b', icon: 'x' } }, permissions: { ok: { level: 'weird', name: { he: 'א', en: 'a' } } }, apps: [{ id: 'x', permissions: [{ id: 'nope' }, { id: 'ok', why: { he: 'ש', en: 's' } }] }] });
+  assert.deepEqual(bad.apps[0].permissions.map((p) => p.id), ['ok']); assert.equal(bad.permissions.ok.level, 'ask');
+});

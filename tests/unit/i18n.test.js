@@ -17,5 +17,5 @@ test('t() fills placeholders and falls back to the key', () => {
   assert.equal(t('card.version', { v: '1.2' }), 'גרסה 1.2'); assert.equal(t('no.such.key'), 'no.such.key');
 });
 test('no hard-coded Latin-only user text in Hebrew strings except brand/technical words', () => {
-  for (const [k, v] of Object.entries(STRINGS.he)) if (!/[֐-׿]/.test(v)) assert.match(v, /^(EN|PWA|APK|OS APPs and Downs|\{[a-z]+\}|Safari|Chrome)$/, `${k} looks untranslated: ${v}`);
+  for (const [k, v] of Object.entries(STRINGS.he)) if (!/[֐-׿]/.test(v)) assert.match(v, /^(EN|English|PWA|APK|OS APPs and Downs|\{[a-z]+\}|Safari|Chrome)$/, `${k} looks untranslated: ${v}`);
 });

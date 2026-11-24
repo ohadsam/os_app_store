@@ -20,3 +20,6 @@ export function getInstalled() {
   return out;
 }
 export function setInstalled(id, version) { const o = getInstalled(); if (version) o[id] = version; else delete o[id]; set('installed', JSON.stringify(o)); }
+
+/** Forget the per-device favourites and the "I installed" marks (language and theme are kept). */
+export function clearUserData() { set('favs', '[]'); set('installed', '{}'); }

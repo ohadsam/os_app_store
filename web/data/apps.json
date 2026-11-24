@@ -300,6 +300,63 @@
     "regex": "\"version\"\\s*:\\s*\"([^\"]+)\"",
     "changelog": "docs/CHANGELOG.md",
     "heading": "## {v}"
+   },
+   "permissions": [
+    {
+     "id": "location",
+     "why": {
+      "he": "מרחק, קצב ומסלול האימון לפי GPS, רק בזמן אימון.",
+      "en": "Workout distance, pace and route by GPS, only during a workout."
+     }
+    },
+    {
+     "id": "activity",
+     "why": {
+      "he": "ספירת צעדים לאורך היום. מבוקש רק כשמפעילים זאת בהגדרות.",
+      "en": "All-day step counting. Asked only when you turn it on in Settings."
+     }
+    },
+    {
+     "id": "notifications",
+     "why": {
+      "he": "תזכורות והמלצות, וההתראה הקבועה בזמן אימון.",
+      "en": "Reminders and recommendations, and the persistent workout notification."
+     }
+    },
+    {
+     "id": "install_packages",
+     "why": {
+      "he": "עדכון האפליקציה מתוך האפליקציה (\"בדיקת עדכונים\").",
+      "en": "Updating the app from inside it (\"Check for updates\")."
+     }
+    },
+    {
+     "id": "foreground_service",
+     "why": {
+      "he": "המשך הקלטת אימון כשהמסך כבוי.",
+      "en": "Keep recording a workout with the screen off."
+     }
+    },
+    {
+     "id": "internet",
+     "why": {
+      "he": "מזג אוויר, מפה ומתכנן מסלולים (אפשר לכבות) והורדת עדכון.",
+      "en": "Weather, map and route planner (can be switched off) and the update download."
+     }
+    },
+    {
+     "id": "boot"
+    }
+   ],
+   "setup": {
+    "he": [
+     "לספירת צעדים כל היום הפעילו זאת בהגדרות; רק אז תתבקשו לאשר \"פעילות גופנית\".",
+     "לאימון עם מסך כבוי: בחרו מיקום \"בזמן השימוש באפליקציה\" והתחילו את האימון כשהאפליקציה פתוחה; השירות ימשיך ברקע עם התראה קבועה."
+    ],
+    "en": [
+     "For all-day steps, turn it on in Settings; only then are you asked for \"Physical activity\".",
+     "For a workout with the screen off: choose location \"While using the app\" and start the workout with the app open; the service keeps going in the background with a persistent notification."
+    ]
    }
   },
   {
@@ -408,6 +465,66 @@
     "regex": "\"version\"\\s*:\\s*\"([^\"]+)\"",
     "changelog": "docs/CHANGELOG.md",
     "heading": "## {v}"
+   },
+   "permissions": [
+    {
+     "id": "notifications",
+     "why": {
+      "he": "תזכורות לשגרה ולשעונים המעוררים.",
+      "en": "Reminders for routines and wake-up alarms."
+     }
+    },
+    {
+     "id": "full_screen",
+     "why": {
+      "he": "להציג שעון מעורר על מסך נעול.",
+      "en": "Show a wake-up alarm on the lock screen."
+     }
+    },
+    {
+     "id": "microphone",
+     "why": {
+      "he": "הערות קוליות ביומן והכתבה. פעיל רק בזמן הקלטה.",
+      "en": "Voice notes in the journal and dictation. On only while recording."
+     }
+    },
+    {
+     "id": "bluetooth",
+     "why": {
+      "he": "חיבור הורה-ילד בין שני טלפונים מצומדים.",
+      "en": "The parent-child link between two paired phones."
+     }
+    },
+    {
+     "id": "nfc",
+     "why": {
+      "he": "שיתוף שגרה בתג NFC.",
+      "en": "Sharing a routine with an NFC tag."
+     }
+    },
+    {
+     "id": "internet",
+     "why": {
+      "he": "רק לכפתור \"בדיקת גרסה חדשה\" בהגדרות, כשלוחצים עליו.",
+      "en": "Only for the \"Check for a new version\" button in Settings, when you tap it."
+     }
+    },
+    {
+     "id": "boot"
+    },
+    {
+     "id": "vibrate"
+    }
+   ],
+   "setup": {
+    "he": [
+     "לשעונים מעוררים ברקע אשרו \"התראות במסך מלא\" אם הוא כבוי.",
+     "הוספת וידג׳ט: לחיצה ארוכה על מסך הבית ← וידג׳טים ← SonRise."
+    ],
+    "en": [
+     "For wake-up alarms, allow \"Full-screen notifications\" if it is off.",
+     "Adding the widget: long-press the home screen → Widgets → SonRise."
+    ]
    }
   },
   {
@@ -516,6 +633,87 @@
     "regex": "versionName\\s+\"([^\"]+)\"",
     "changelog": "CHANGELOG.md",
     "heading": "## [{v}]"
+   },
+   "permissions": [
+    {
+     "id": "location",
+     "why": {
+      "he": "שמירת מיקום החניה והצגת מרחק לרכב.",
+      "en": "Saving the parking spot and showing the distance to the car."
+     }
+    },
+    {
+     "id": "background_location",
+     "why": {
+      "he": "זיהוי התרחקות מהרכב כשהאפליקציה סגורה. מבוקש ממדריך \"הגדרת זיהוי ברקע\", לא בהפעלה ראשונה.",
+      "en": "Detecting that you walked away from the car while the app is closed. Asked from the \"background detection\" setup guide, not on first launch."
+     }
+    },
+    {
+     "id": "bluetooth",
+     "why": {
+      "he": "זיהוי התחברות וניתוק מה-Bluetooth של הרכב.",
+      "en": "Detecting connection and disconnection of the car's Bluetooth."
+     }
+    },
+    {
+     "id": "camera",
+     "why": {
+      "he": "צילום מקום החניה.",
+      "en": "Photographing the parking spot."
+     }
+    },
+    {
+     "id": "microphone",
+     "why": {
+      "he": "תיאור קולי של מקום החניה.",
+      "en": "A voice description of the spot."
+     }
+    },
+    {
+     "id": "notifications",
+     "why": {
+      "he": "הצעות לשמירה וסיום חניה, וההתראה הקבועה.",
+      "en": "Suggestions to save and end a parking, and the persistent notification."
+     }
+    },
+    {
+     "id": "battery",
+     "why": {
+      "he": "כדי שזיהוי הרקע לא ייעצר.",
+      "en": "So background detection is not stopped."
+     }
+    },
+    {
+     "id": "install_packages",
+     "why": {
+      "he": "עדכון האפליקציה מתוך האפליקציה.",
+      "en": "Updating the app from inside it."
+     }
+    },
+    {
+     "id": "foreground_service"
+    },
+    {
+     "id": "internet",
+     "why": {
+      "he": "אריחי מפה וחיפוש כתובת.",
+      "en": "Map tiles and address lookup."
+     }
+    },
+    {
+     "id": "boot"
+    }
+   ],
+   "setup": {
+    "he": [
+     "אחרי ההתקנה נפתח מדריך \"הגדרת זיהוי ברקע\". עוברים עליו בסדר: מיקום \"כל הזמן\", פטור מסוללה, ובמכשירי Xiaomi גם \"הפעלה אוטומטית\".",
+     "כדי שזיהוי ה-Bluetooth יעבוד כשהאפליקציה סגורה אין לסגור אותה מ\"אפליקציות אחרונות\" בהחלקה (במכשירים מסוימים)."
+    ],
+    "en": [
+     "After install a \"background detection\" guide opens. Go through it in order: location \"all the time\", battery exemption, and on Xiaomi also \"Autostart\".",
+     "For Bluetooth detection to work while the app is closed, do not swipe it away from Recents (on some devices)."
+    ]
    }
   },
   {
@@ -601,6 +799,23 @@
     "repo": "kodesh-app",
     "file": "sw.js",
     "regex": "APP_VERSION\\s*=\\s*'([^']+)'"
+   },
+   "permissions": [
+    {
+     "id": "location",
+     "why": {
+      "he": "מצפן תפילה וזמני היום לפי מקום.",
+      "en": "The prayer compass and daily times by place."
+     },
+     "how": {
+      "he": "הדפדפן ישאל \"לאפשר לאתר לדעת את מיקומך?\". בוחרים \"בזמן השימוש באתר\". אם סירבתם: סמל המנעול ליד הכתובת ← הרשאות ← מיקום.",
+      "en": "The browser asks \"Allow this site to know your location?\". Choose \"While visiting the site\". If you declined: the lock icon by the address → Permissions → Location."
+     }
+    }
+   ],
+   "setup": {
+    "he": [],
+    "en": []
    }
   },
   {
@@ -679,6 +894,11 @@
     "repo": "table_orginizer",
     "file": "js/config.js",
     "regex": "APP_VERSION:\\s*'([^']+)'"
+   },
+   "permissions": [],
+   "setup": {
+    "he": [],
+    "en": []
    }
   },
   {
@@ -783,6 +1003,11 @@
     "regex": "APP_VERSION\\s*=\\s*'([^']+)'",
     "changelog": "docs/CHANGELOG.md",
     "heading": "## v{v}"
+   },
+   "permissions": [],
+   "setup": {
+    "he": [],
+    "en": []
    }
   },
   {
@@ -867,6 +1092,80 @@
     "regex": "versionName\\s*=\\s*\"([^\"]+)\"",
     "changelog": "docs/CHANGELOG.md",
     "heading": "## {v}"
+   },
+   "permissions": [
+    {
+     "id": "notifications",
+     "why": {
+      "he": "תזכורות לימי הולדת, נישואין ואזכרות.",
+      "en": "Reminders for birthdays, anniversaries and memorials."
+     }
+    },
+    {
+     "id": "exact_alarms",
+     "why": {
+      "he": "תזכורת בדקה המדויקת.",
+      "en": "A reminder at the exact minute."
+     }
+    },
+    {
+     "id": "contacts",
+     "why": {
+      "he": "רק כשמייבאים ימי הולדת מאנשי הקשר.",
+      "en": "Only when importing birthdays from your contacts."
+     }
+    },
+    {
+     "id": "calendar",
+     "why": {
+      "he": "רק במסך סנכרון היומן.",
+      "en": "Only on the calendar-sync screen."
+     }
+    },
+    {
+     "id": "microphone",
+     "why": {
+      "he": "רק בזמן הקלטת ברכה קולית.",
+      "en": "Only while recording a voice greeting."
+     }
+    },
+    {
+     "id": "sms",
+     "why": {
+      "he": "רק לכלל תזכורת שהגדרתם לשלוח SMS בעצמו.",
+      "en": "Only for a reminder rule you set to send an SMS by itself."
+     }
+    },
+    {
+     "id": "install_packages",
+     "why": {
+      "he": "עדכון האפליקציה מתוך האפליקציה.",
+      "en": "Updating the app from inside it."
+     }
+    },
+    {
+     "id": "internet",
+     "why": {
+      "he": "רק לבדיקת עדכון והורדתו.",
+      "en": "Only to check for and download an update."
+     }
+    },
+    {
+     "id": "boot"
+    },
+    {
+     "id": "vibrate"
+    }
+   ],
+   "setup": {
+    "he": [
+     "ההרשאות נשאלות רק כשנכנסים למסך שצריך אותן (אנשי קשר, יומן, מיקרופון). אפשר לסרב לכל אחת ולהמשיך להשתמש באפליקציה.",
+     "אם התזכורות מגיעות באיחור: \"שעונים מעוררים ותזכורות\" וסוללה \"ללא הגבלה\"."
+    ],
+    "en": [
+     "Permissions are asked only when you open the screen that needs them (contacts, calendar, microphone). You may decline any and keep using the app.",
+     "If reminders arrive late: \"Alarms & reminders\" and \"Unrestricted\" battery."
+    ]
    }
   },
   {
@@ -946,6 +1245,86 @@
     "regex": "versionName\\s*=\\s*\"([^\"]+)\"",
     "changelog": "docs/CHANGELOG.md",
     "heading": "## v{v}"
+   },
+   "permissions": [
+    {
+     "id": "notifications",
+     "why": {
+      "he": "התראת השעון המעורר והודעות האפליקציה.",
+      "en": "The alarm notification and app messages."
+     }
+    },
+    {
+     "id": "exact_alarms",
+     "why": {
+      "he": "צלצול בדקה המדויקת.",
+      "en": "Ringing at the exact minute."
+     }
+    },
+    {
+     "id": "full_screen",
+     "why": {
+      "he": "מסך הצלצול מעל מסך נעול.",
+      "en": "The ringing screen over the lock screen."
+     }
+    },
+    {
+     "id": "battery",
+     "why": {
+      "he": "כדי שהשעון המעורר יפעל גם כשהמכשיר \"ישן\".",
+      "en": "So the alarm works even when the device is \"asleep\"."
+     }
+    },
+    {
+     "id": "audio_files",
+     "why": {
+      "he": "בחירת צליל התראה מהמוזיקה שלכם.",
+      "en": "Choosing an alarm sound from your music."
+     }
+    },
+    {
+     "id": "bluetooth",
+     "why": {
+      "he": "זיווג עם טלפון או שעון.",
+      "en": "Pairing with a phone or watch."
+     }
+    },
+    {
+     "id": "install_packages",
+     "why": {
+      "he": "עדכון האפליקציה מתוך האפליקציה.",
+      "en": "Updating the app from inside it."
+     }
+    },
+    {
+     "id": "nfc"
+    },
+    {
+     "id": "internet",
+     "why": {
+      "he": "רק לבדיקת עדכון והורדתו.",
+      "en": "Only to check for and download an update."
+     }
+    },
+    {
+     "id": "boot"
+    },
+    {
+     "id": "vibrate"
+    },
+    {
+     "id": "foreground_service"
+    }
+   ],
+   "setup": {
+    "he": [
+     "בשעון מעורר זה קריטי: אשרו התראות, \"שעונים מעוררים ותזכורות\", \"התראות במסך מלא\" ו\"ללא הגבלה\" בסוללה, אחרת הצלצול עלול להתעכב.",
+     "אחרי ההתקנה בדקו שעון מעורר לעוד דקה אחת לפני שסומכים עליו בבוקר."
+    ],
+    "en": [
+     "For an alarm clock this matters: allow notifications, \"Alarms & reminders\", \"Full-screen notifications\" and \"Unrestricted\" battery, otherwise ringing may be late.",
+     "After installing, test an alarm one minute ahead before relying on it in the morning."
+    ]
    }
   },
   {
@@ -1022,6 +1401,77 @@
     "regex": "appVersionName\\s*=\\s*\"([^\"]+)\"",
     "changelog": "docs/CHANGELOG.md",
     "heading": "## {v}"
+   },
+   "permissions": [
+    {
+     "id": "location",
+     "why": {
+      "he": "אופציונלי: מקום \"נוכחי\" (מדויק-בערך בלבד) למזג האוויר. עיר קבועה לא דורשת הרשאה.",
+      "en": "Optional: a \"current\" place (approximate only) for the weather. A fixed city needs no permission."
+     }
+    },
+    {
+     "id": "calendar",
+     "why": {
+      "he": "אופציונלי: באנר אירועי היום (קריאה בלבד).",
+      "en": "Optional: the today's-events banner (read only)."
+     }
+    },
+    {
+     "id": "activity",
+     "why": {
+      "he": "אופציונלי: צעדי היום מחיישן הצעדים.",
+      "en": "Optional: today's steps from the step sensor."
+     }
+    },
+    {
+     "id": "notifications",
+     "why": {
+      "he": "אופציונלי: התראת סיום ספירה ו\"גשם בדרך\".",
+      "en": "Optional: countdown-finished and \"rain is coming\" alerts."
+     }
+    },
+    {
+     "id": "events_link",
+     "why": {
+      "he": "אופציונלי: אירועים קרובים מאפליקציית \"אירועים מיוחדים\".",
+      "en": "Optional: upcoming events from the \"Special Events\" app."
+     }
+    },
+    {
+     "id": "exact_alarms",
+     "why": {
+      "he": "שעון הפליפ צריך להתחלף בדקה המדויקת.",
+      "en": "The flip clock must change on the exact minute."
+     }
+    },
+    {
+     "id": "install_packages",
+     "why": {
+      "he": "עדכון האפליקציה מתוך האפליקציה.",
+      "en": "Updating the app from inside it."
+     }
+    },
+    {
+     "id": "internet",
+     "why": {
+      "he": "מזג אוויר וחיפוש מקום (אפשר לכבות).",
+      "en": "Weather and place search (can be switched off)."
+     }
+    },
+    {
+     "id": "boot"
+    }
+   ],
+   "setup": {
+    "he": [
+     "זהו ווידג׳ט: אחרי ההתקנה לוחצים ארוכות על מסך הבית ← וידג׳טים ← ClockWise, וגוררים. אפשר לשנות גודל.",
+     "כל ההרשאות אופציונליות; בלעדיהן הווידג׳ט עובד עם עיר קבועה."
+    ],
+    "en": [
+     "This is a widget: after installing, long-press the home screen → Widgets → ClockWise, and drag it. You can resize it.",
+     "Every permission is optional; without them the widget works with a fixed city."
+    ]
    }
   },
   {
@@ -1098,6 +1548,23 @@
     "regex": "versionName\\s*=\\s*\"([^\"]+)\"",
     "changelog": "docs/CHANGELOG.md",
     "heading": "## v{v}"
+   },
+   "permissions": [
+    {
+     "id": "notifications",
+     "why": {
+      "he": "התראות על פעולות ארוכות ברקע, כמו סריקת כפילויות.",
+      "en": "Alerts for long background jobs such as the duplicate scan."
+     }
+    }
+   ],
+   "setup": {
+    "he": [
+     "האפליקציה לא מבקשת \"גישה לכל הקבצים\": בוחרים תיקיות דרך בוחר הקבצים של המערכת ולוחצים \"השתמש בתיקייה זו\"."
+    ],
+    "en": [
+     "The app does not ask for \"all files access\": you pick folders through the system file picker and tap \"Use this folder\"."
+    ]
    }
   },
   {
@@ -1178,7 +1645,377 @@
     "regex": "versionName\\s*=\\s*\"([^\"]+)\"",
     "changelog": "docs/CHANGELOG.md",
     "heading": "## {v}"
+   },
+   "permissions": [
+    {
+     "id": "notifications",
+     "why": {
+      "he": "תזכורות לקריאת תהילים (שלא מופיעות בשבת ובחג).",
+      "en": "Reminders to read Tehilim (silent on Shabbat and Yom Tov)."
+     }
+    },
+    {
+     "id": "exact_alarms",
+     "why": {
+      "he": "תזכורת בשעה המדויקת.",
+      "en": "A reminder at the exact time."
+     }
+    },
+    {
+     "id": "location",
+     "why": {
+      "he": "אופציונלי: זמני שבת וחג לפי מקום (מדויק-בערך בלבד).",
+      "en": "Optional: Shabbat and Yom Tov times by place (approximate only)."
+     }
+    },
+    {
+     "id": "install_packages",
+     "why": {
+      "he": "עדכון האפליקציה מתוך האפליקציה.",
+      "en": "Updating the app from inside it."
+     }
+    },
+    {
+     "id": "internet",
+     "why": {
+      "he": "הורדת נוסח הפרקים מספריא, ובדיקת עדכון.",
+      "en": "Downloading the chapters from Sefaria, and the update check."
+     }
+    },
+    {
+     "id": "boot"
+    },
+    {
+     "id": "vibrate"
+    }
+   ],
+   "setup": {
+    "he": [
+     "אחרי ההתקנה אפשר להוסיף וידג׳ט: לחיצה ארוכה על מסך הבית ← וידג׳טים ← תהילים יומי (או מתוך האפליקציה: עוד ← הוספת וידג׳ט).",
+     "אשרו התראות ו\"שעונים מעוררים ותזכורות\" כדי שהתזכורות יגיעו בזמן."
+    ],
+    "en": [
+     "After installing you can add a widget: long-press the home screen → Widgets → Tehilim Daily (or in the app: More → Add widget).",
+     "Allow notifications and \"Alarms & reminders\" so reminders arrive on time."
+    ]
    }
   }
- ]
+ ],
+ "permissions": {
+  "notifications": {
+   "level": "ask",
+   "name": {
+    "he": "התראות",
+    "en": "Notifications"
+   },
+   "what": {
+    "he": "להציג תזכורות והודעות מהאפליקציה.",
+    "en": "To show reminders and messages from the app."
+   },
+   "how": {
+    "he": "באנדרואיד 13 ומעלה מופיע חלון \"לאפשר לאפליקציה לשלוח לך התראות?\". לוחצים \"אפשר\" (Allow).",
+    "en": "On Android 13+ a dialog asks \"Allow the app to send you notifications?\". Tap \"Allow\"."
+   }
+  },
+  "location": {
+   "level": "ask",
+   "name": {
+    "he": "מיקום",
+    "en": "Location"
+   },
+   "what": {
+    "he": "לדעת איפה אתם, לפי מה שהאפליקציה עושה.",
+    "en": "To know where you are, for what the app does."
+   },
+   "how": {
+    "he": "מופיע חלון \"לאפשר גישה למיקום המכשיר?\". בוחרים \"בזמן השימוש באפליקציה\" (While using the app), ואם יש בחירה גם \"מדויק\" (Precise).",
+    "en": "A dialog \"Allow access to this device's location?\" appears. Choose \"While using the app\", and \"Precise\" if offered."
+   }
+  },
+  "background_location": {
+   "level": "special",
+   "name": {
+    "he": "מיקום ברקע (\"תמיד\")",
+    "en": "Background location (\"all the time\")"
+   },
+   "what": {
+    "he": "כדי שזיהוי יעבוד כשהאפליקציה סגורה.",
+    "en": "So detection works while the app is closed."
+   },
+   "how": {
+    "he": "אי אפשר לאשר זאת בחלון קופץ רגיל: האפליקציה פותחת את דף ההרשאות שלה בהגדרות. נכנסים ל\"מיקום\" ובוחרים \"אפשר כל הזמן\" (Allow all the time).",
+    "en": "It cannot be granted from a normal pop-up: the app opens its permission page in Settings. Open \"Location\" and choose \"Allow all the time\"."
+   }
+  },
+  "activity": {
+   "level": "ask",
+   "name": {
+    "he": "פעילות גופנית",
+    "en": "Physical activity"
+   },
+   "what": {
+    "he": "לספור צעדים מחיישן הצעדים של הטלפון.",
+    "en": "To count steps from the phone's step sensor."
+   },
+   "how": {
+    "he": "מופיע חלון \"לאפשר גישה לפעילות הגופנית שלך?\". לוחצים \"אפשר\".",
+    "en": "A dialog \"Allow access to your physical activity?\" appears. Tap \"Allow\"."
+   }
+  },
+  "exact_alarms": {
+   "level": "special",
+   "name": {
+    "he": "התראות ושעונים מעוררים מדויקים",
+    "en": "Alarms & reminders (exact)"
+   },
+   "what": {
+    "he": "כדי שתזכורות ושעונים יצלצלו בדקה המדויקת.",
+    "en": "So reminders and alarms ring at the exact minute."
+   },
+   "how": {
+    "he": "באנדרואיד 12 ומטה, ובחלק מהמכשירים גם בגרסאות חדשות, צריך לאשר ידנית: הגדרות ← אפליקציות ← גישה מיוחדת ← \"שעונים מעוררים ותזכורות\" ← בוחרים את האפליקציה ומפעילים. באנדרואיד 13+ אפליקציות שעון מקבלות זאת אוטומטית.",
+    "en": "On Android 12 and below, and on some newer devices, allow it by hand: Settings → Apps → Special app access → \"Alarms & reminders\" → pick the app and turn it on. On Android 13+ clock apps get it automatically."
+   }
+  },
+  "full_screen": {
+   "level": "special",
+   "name": {
+    "he": "התראות במסך מלא",
+    "en": "Full-screen notifications"
+   },
+   "what": {
+    "he": "להציג שעון מעורר מעל מסך נעול.",
+    "en": "To show an alarm over the lock screen."
+   },
+   "how": {
+    "he": "באנדרואיד 14 ומעלה לפעמים כבוי כברירת מחדל: הגדרות ← אפליקציות ← גישה מיוחדת ← \"התראות במסך מלא\" ← מפעילים לאפליקציה.",
+    "en": "On Android 14+ it is sometimes off by default: Settings → Apps → Special app access → \"Full-screen notifications\" → turn it on for the app."
+   }
+  },
+  "battery": {
+   "level": "special",
+   "name": {
+    "he": "פטור מחיסכון בסוללה",
+    "en": "Battery optimisation exemption"
+   },
+   "what": {
+    "he": "כדי שהאפליקציה לא תיעצר ברקע.",
+    "en": "So the app is not stopped in the background."
+   },
+   "how": {
+    "he": "מופיע חלון \"לאפשר לאפליקציה לפעול תמיד ברקע?\" - לוחצים \"אפשר\". אם אין: הגדרות ← אפליקציות ← האפליקציה ← סוללה ← \"ללא הגבלה\" (Unrestricted). ב-Xiaomi גם \"הפעלה אוטומטית\" (Autostart).",
+    "en": "A dialog \"Let the app always run in the background?\" appears: tap \"Allow\". If not: Settings → Apps → the app → Battery → \"Unrestricted\". On Xiaomi also turn on \"Autostart\"."
+   }
+  },
+  "install_packages": {
+   "level": "special",
+   "name": {
+    "he": "התקנת אפליקציות לא מוכרות (לעדכון)",
+    "en": "Install unknown apps (for updating)"
+   },
+   "what": {
+    "he": "כדי לעדכן את האפליקציה מתוך עצמה.",
+    "en": "To update the app from inside itself."
+   },
+   "how": {
+    "he": "מופיע רק כשלוחצים \"התקנת העדכון\" בפעם הראשונה: אנדרואיד פותח הגדרות. מפעילים \"אפשר ממקור זה\" וחוזרים אחורה, ואז לוחצים שוב.",
+    "en": "Only appears the first time you tap \"Install update\": Android opens Settings. Turn on \"Allow from this source\", go back, and tap again."
+   }
+  },
+  "bluetooth": {
+   "level": "ask",
+   "name": {
+    "he": "מכשירים קרובים (Bluetooth)",
+    "en": "Nearby devices (Bluetooth)"
+   },
+   "what": {
+    "he": "לחבר או לזהות מכשיר Bluetooth.",
+    "en": "To connect to or detect a Bluetooth device."
+   },
+   "how": {
+    "he": "מופיע חלון \"לאפשר גישה למכשירים בקרבת מקום?\". לוחצים \"אפשר\".",
+    "en": "A dialog \"Allow access to nearby devices?\" appears. Tap \"Allow\"."
+   }
+  },
+  "camera": {
+   "level": "ask",
+   "name": {
+    "he": "מצלמה",
+    "en": "Camera"
+   },
+   "what": {
+    "he": "לצלם תמונה.",
+    "en": "To take a photo."
+   },
+   "how": {
+    "he": "מופיע חלון \"לאפשר צילום תמונות והקלטת וידאו?\". בוחרים \"בזמן השימוש באפליקציה\".",
+    "en": "A dialog \"Allow taking pictures and recording video?\" appears. Choose \"While using the app\"."
+   }
+  },
+  "microphone": {
+   "level": "ask",
+   "name": {
+    "he": "מיקרופון",
+    "en": "Microphone"
+   },
+   "what": {
+    "he": "להקליט קול.",
+    "en": "To record sound."
+   },
+   "how": {
+    "he": "מופיע חלון \"לאפשר הקלטת אודיו?\". בוחרים \"בזמן השימוש באפליקציה\". המיקרופון פעיל רק בזמן הקלטה.",
+    "en": "A dialog \"Allow recording audio?\" appears. Choose \"While using the app\". The microphone is only on while recording."
+   }
+  },
+  "calendar": {
+   "level": "ask",
+   "name": {
+    "he": "יומן",
+    "en": "Calendar"
+   },
+   "what": {
+    "he": "לקרוא או לעדכן אירועי יומן.",
+    "en": "To read or update calendar events."
+   },
+   "how": {
+    "he": "מופיע חלון \"לאפשר גישה ליומן?\". לוחצים \"אפשר\".",
+    "en": "A dialog \"Allow access to your calendar?\" appears. Tap \"Allow\"."
+   }
+  },
+  "contacts": {
+   "level": "ask",
+   "name": {
+    "he": "אנשי קשר",
+    "en": "Contacts"
+   },
+   "what": {
+    "he": "לייבא שמות ותאריכים מאנשי הקשר.",
+    "en": "To import names and dates from your contacts."
+   },
+   "how": {
+    "he": "מופיע חלון \"לאפשר גישה לאנשי הקשר?\". לוחצים \"אפשר\". אפשר לסרב ולהשתמש בבחירת איש קשר בודד דרך מסך המערכת.",
+    "en": "A dialog \"Allow access to your contacts?\" appears. Tap \"Allow\". You may decline and pick single contacts through the system picker."
+   }
+  },
+  "sms": {
+   "level": "ask",
+   "name": {
+    "he": "שליחת SMS",
+    "en": "Send SMS"
+   },
+   "what": {
+    "he": "לשלוח הודעות SMS בשמכם.",
+    "en": "To send SMS messages for you."
+   },
+   "how": {
+    "he": "מופיע חלון \"לאפשר שליחת הודעות SMS?\". אנדרואיד מזהיר שזה \"עלול לעלות כסף\" - זו אזהרה כללית. אפשר לסרב; שאר האפליקציה עובדת.",
+    "en": "A dialog \"Allow sending SMS messages?\" appears. Android warns it \"may cost money\" - a generic warning. You may decline; the rest of the app works."
+   }
+  },
+  "audio_files": {
+   "level": "ask",
+   "name": {
+    "he": "מוזיקה ואודיו",
+    "en": "Music and audio"
+   },
+   "what": {
+    "he": "לבחור צלילי התראה מהמכשיר.",
+    "en": "To pick alarm sounds from the device."
+   },
+   "how": {
+    "he": "מופיע חלון \"לאפשר גישה למוזיקה ולאודיו?\". לוחצים \"אפשר\".",
+    "en": "A dialog \"Allow access to music and audio?\" appears. Tap \"Allow\"."
+   }
+  },
+  "events_link": {
+   "level": "ask",
+   "name": {
+    "he": "אירועים מאפליקציית \"אירועים מיוחדים\"",
+    "en": "Events from the \"Special Events\" app"
+   },
+   "what": {
+    "he": "להציג אירועים קרובים משם.",
+    "en": "To show upcoming events from there."
+   },
+   "how": {
+    "he": "מופיע חלון הרשאה מותאם. לוחצים \"אפשר\". דורש שהאפליקציה \"אירועים מיוחדים\" מותקנת.",
+    "en": "A custom permission dialog appears. Tap \"Allow\". Needs the \"Special Events\" app installed."
+   }
+  },
+  "internet": {
+   "level": "auto",
+   "name": {
+    "he": "אינטרנט",
+    "en": "Internet"
+   },
+   "what": {
+    "he": "לטעון מידע (מזג אוויר, מפות, תוכן) ולבדוק עדכונים.",
+    "en": "To load data (weather, maps, content) and check for updates."
+   },
+   "how": {
+    "he": "ניתנת אוטומטית בהתקנה, בלי חלון.",
+    "en": "Granted automatically at install, no dialog."
+   }
+  },
+  "boot": {
+   "level": "auto",
+   "name": {
+    "he": "הפעלה אחרי אתחול",
+    "en": "Start after reboot"
+   },
+   "what": {
+    "he": "כדי שתזכורות ושעונים יחזרו לפעול אחרי הפעלה מחדש של הטלפון.",
+    "en": "So reminders and alarms come back after the phone restarts."
+   },
+   "how": {
+    "he": "ניתנת אוטומטית בהתקנה. ב-Xiaomi ייתכן שצריך גם \"הפעלה אוטומטית\".",
+    "en": "Granted automatically. On Xiaomi you may also need \"Autostart\"."
+   }
+  },
+  "foreground_service": {
+   "level": "auto",
+   "name": {
+    "he": "שירות ברקע עם התראה",
+    "en": "Background service with a notification"
+   },
+   "what": {
+    "he": "כדי להמשיך לפעול כשהמסך כבוי (אימון, זיהוי).",
+    "en": "To keep working with the screen off (workout, detection)."
+   },
+   "how": {
+    "he": "ניתנת אוטומטית; תראו התראה קבועה בזמן שהשירות פעיל.",
+    "en": "Granted automatically; you will see a persistent notification while it runs."
+   }
+  },
+  "nfc": {
+   "level": "auto",
+   "name": {
+    "he": "NFC",
+    "en": "NFC"
+   },
+   "what": {
+    "he": "לשתף בעזרת תג NFC.",
+    "en": "To share with an NFC tag."
+   },
+   "how": {
+    "he": "ניתנת אוטומטית.",
+    "en": "Granted automatically."
+   }
+  },
+  "vibrate": {
+   "level": "auto",
+   "name": {
+    "he": "רטט ושמירת מסך פעיל",
+    "en": "Vibration and wake lock"
+   },
+   "what": {
+    "he": "רטט בהתראות ושמירת המכשיר ער בזמן צלצול.",
+    "en": "Vibration for alerts and keeping the device awake while ringing."
+   },
+   "how": {
+    "he": "ניתנות אוטומטית.",
+    "en": "Granted automatically."
+   }
+  }
+ }
 }

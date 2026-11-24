@@ -16,8 +16,9 @@ for (const lang of ['he', 'en']) {
   const shot = async (name, full = false) => { await page.screenshot({ path: `${out}/${lang}-${name}.png`, fullPage: full }); shots++; await audit(name); };
   const go = async (hash) => { await page.goto(base + hash); await page.reload(); await page.waitForSelector('#app h1, .card'); await page.waitForTimeout(250); };
   async function audit(name) {
-    const r = await page.evaluate(() => {
-      const bad = [...document.querySelectorAll('img')].filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.getAttribute('src'));
+    const r = await page.evaluate(async () => {
+      const imgs = [...document.querySelectorAll('img')]; imgs.forEach((i) => { i.loading = 'eager'; }); await Promise.all(imgs.filter((i) => i.offsetParent !== null).map((i) => i.decode().catch(() => {})));
+      const bad = imgs.filter((i) => i.offsetParent !== null).filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.getAttribute('src'));
       const small = [...document.querySelectorAll('a[href],button,select,input')].filter((e) => { const b = e.getBoundingClientRect(); return b.width && b.height && (b.height < 40 || b.width < 40) && !e.closest('.shots') && getComputedStyle(e).visibility !== 'hidden' && !e.classList.contains('skip') && !e.classList.contains('card-link') && !(e.tagName === 'INPUT' && e.closest('label')) && !(e.tagName === 'A' && e.closest('p,li,.footer,.links')); }).map((e) => `${e.tagName}.${e.className}`);
       return { bad, small: [...new Set(small)], overflow: document.documentElement.scrollWidth > innerWidth + 1 };
     });
@@ -27,7 +28,7 @@ for (const lang of ['he', 'en']) {
   await page.click('.filter-btn'); await page.waitForSelector('dialog[open]'); await shot('03-filters'); await page.keyboard.press('Escape');
   await go('#/app/stepup'); await shot('04-detail-top'); await shot('05-detail-full', true); await page.click('.inst .more >> nth=0'); await shot('06-detail-install', true);
   await page.click('.shot >> nth=0'); await page.waitForSelector('dialog.lightbox[open]'); await shot('07-lightbox'); await page.keyboard.press('Escape');
-  await go('#/guide'); await shot('08-guide', true); await go('#/about'); await shot('09-about', true);
+  await go('#/guide'); await shot('08-guide', true); await go('#/about'); await shot('09-about', true); await go('#/settings'); await shot('10-settings'); await go('#/app/findmycar'); await shot('11-permissions', true);
   for (const a of APPS) { await go(`#/app/${a.id}`); await shot(`app-${a.id}`); }
   await ctx.close();
 }

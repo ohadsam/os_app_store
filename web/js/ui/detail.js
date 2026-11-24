@@ -7,13 +7,31 @@ import { needsUpdate } from '../catalog.js';
 import { appIcon, platformBadges, actionButton } from './card.js';
 import { openLightbox } from './lightbox.js';
 import { art, catIcon } from './art.js';
-import { flowSection, steps } from './guide.js';
+import { steps, troubleSection } from './guide.js';
 import { waLink, shareText, appUrl } from '../share.js';
 
 const ISSUES = 'https://github.com/ohadsam/os_app_store/issues/new';
 const file = (u) => (u ? decodeURIComponent(new URL(u).pathname.split('/').pop()) : 'app.apk');
 const host = (u) => (u ? new URL(u).host : 'github.com');
 const link = (href, text) => h('a', { class: 'ext', href, target: '_blank', rel: 'noopener' }, text, icon('external'));
+
+const LEVELS = ['ask', 'special', 'auto'];
+function permissionsSection(catalog, app) {
+  const items = app.permissions.map((p) => ({ ...catalog.permissions[p.id], id: p.id, why: p.why, how: p.how }));
+  const web = !app.platforms.includes('android');
+  const group = (level) => {
+    const list = items.filter((p) => p.level === level);
+    if (!list.length) return null;
+    const rows = list.map((p) => h('li', { class: 'perm' }, h('b', null, loc(p.name)), loc(p.why) ? h('p', null, h('span', { class: 'lbl' }, `${t('perm.why')}: `), loc(p.why)) : h('p', null, loc(p.what)),
+      h('p', { class: 'perm-how' }, h('span', { class: 'lbl' }, `${t('perm.how')}: `), loc(p.how) || loc(catalog.permissions[p.id].how))));
+    return level === 'auto' ? h('details', { class: 'perm-group' }, h('summary', null, `${t('perm.auto')} (${list.length})`), h('ul', { class: 'perms' }, rows))
+      : h('div', { class: 'perm-group' }, h('h3', null, `${t(`perm.${level}`)} (${list.length})`), h('ul', { class: 'perms' }, rows));
+  };
+  const setup = locList(app.setup);
+  return h('section', { 'aria-labelledby': 'h-perm' }, h('h2', { class: 'sec', id: 'h-perm' }, t('perm.title')), h('p', { class: 'muted' }, t(web ? 'perm.introPwa' : 'perm.intro')),
+    items.length ? LEVELS.map(group) : h('p', { class: 'note' }, t('perm.none')),
+    setup.length ? h('div', { class: 'callout' }, h('b', null, t('perm.setup')), h('ul', { class: 'bullets' }, setup.map((x) => h('li', null, x)))) : null);
+}
 
 export function detailPage(catalog, id) {
   const app = catalog.apps.find((a) => a.id === id);
@@ -62,6 +80,8 @@ export function detailPage(catalog, id) {
         h('h3', null, t('detail.highlights')), h('ul', { class: 'bullets' }, locList(app.highlights).map((x) => h('li', null, x))), h('div', { class: 'badges' }, app.tags.map((k) => h('span', { class: 'tag' }, `#${loc(catalog.tags[k])}`)))),
       locList(app.whatsNew).length ? h('section', { 'aria-labelledby': 'h-new' }, h('h2', { class: 'sec', id: 'h-new' }, t('detail.whatsNew', { v: app.version })), h('ul', { class: 'bullets' }, locList(app.whatsNew).map((x) => h('li', null, x)))) : null,
       install,
+      permissionsSection(catalog, app),
+      app.platforms.includes('android') && app.apk.state !== 'none' ? troubleSection() : null,
       h('section', { 'aria-labelledby': 'h-info' }, h('h2', { class: 'sec', id: 'h-info' }, t('detail.info')), h('dl', { class: 'info' }, infoRows.map(([k, v]) => [h('dt', null, k), h('dd', null, v)])),
         h('div', { class: 'row-actions' }, isInstalled
           ? [h('span', { class: 'note' }, t('detail.installedV', { v: installed[app.id] })), h('button', { class: 'btn btn-ghost', type: 'button', onclick: () => { setInstalled(app.id, null); paint(); } }, t('detail.unmark'))]

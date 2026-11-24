@@ -16,3 +16,9 @@ Screenshots (tap to enlarge), what the app does, what's new in the latest versio
 
 ## About
 Copyright, the note that all images were made with AI tools, how to report a problem, the store version and "Check for a store update".
+
+## Permissions and troubleshooting (1.2)
+Each Android app page has **Permissions and steps after install**: what the app asks for, why, and what to tap (pop-up permissions, Settings-screen permissions such as exact alarms / full-screen alarms / battery / background location, and the ones granted automatically). **Install troubleshooting** (also on the guide page) explains every block Android may show, including which small "More details" line to expand so "Install anyway" appears.
+
+## Settings
+The Settings tab sets the language (Hebrew is the default, English is available), light/dark, and resets favourites and install marks on this device.
