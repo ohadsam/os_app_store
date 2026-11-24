@@ -2,6 +2,7 @@
 import { h } from '../util.js';
 import { t } from '../i18n.js';
 import { phone } from './mock.js';
+import { art } from './art.js';
 
 export const FLOWS = {
   android: [['a1', 'download'], ['a2', 'opened'], ['a3', 'blocked'], ['a4', 'allow'], ['a5', 'install'], ['a6', 'protect'], ['a7', 'done']],
@@ -25,6 +26,7 @@ export function guidePage() {
   const ctx = { name: 'App', file: 'app.apk', host: 'github.com', icon: 'icon.svg' };
   return h('section', { class: 'page guide' },
     h('h1', null, t('guide.title')), h('p', { class: 'lead' }, t('guide.sub')),
+    h('div', { class: 'art-strip' }, [['install/download', 'art.download'], ['install/allow-once', 'art.allow'], ['install/done', 'art.done']].map(([n, k]) => h('figure', null, art(n, { w: 160, h: 100 }), h('figcaption', null, t(k))))),
     h('div', { class: 'callout' }, h('b', null, t('guide.why')), h('p', null, t('guide.whyText'))),
     h('p', { class: 'muted' }, t('guide.mockNote')),
     flowSection('android', ctx, true), flowSection('pwa', ctx), flowSection('ios', ctx),

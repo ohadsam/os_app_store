@@ -20,6 +20,8 @@ async function newPage({ lang = 'he', width = 390, scheme = 'light', sw = false,
   await page.goto(base + hash); await page.waitForSelector('#app h1, #app .card');
   return { page, errors, ctx };
 }
+// Lazy images below the fold are forced to load; images hidden by the theme (the other half of an art pair) are ignored.
+const imagesOk = (page, sel) => page.evaluate(async (q) => { const imgs = [...document.querySelectorAll(q)].filter((i) => i.offsetParent !== null || i.closest('.shots')); imgs.forEach((i) => { i.loading = 'eager'; }); await Promise.all(imgs.map((i) => i.decode().catch(() => {}))); return imgs.length > 0 && imgs.every((i) => i.complete && i.naturalWidth > 0); }, sel);
 const closeSheet = async (page) => { await page.click('.sheet-actions .btn-primary'); await page.waitForSelector('dialog', { state: 'detached' }); };
 const allCards = (page) => page.locator('section[aria-labelledby="h-all"] .card').count();
 async function axeClean(page, label) {
@@ -35,7 +37,7 @@ await step('boot: Hebrew RTL store with every app, hero, nav, footer, no errors'
   assert.equal(await page.evaluate(() => document.documentElement.dir), 'rtl'); assert.equal(await page.evaluate(() => document.documentElement.lang), 'he');
   assert.equal(await allCards(page), APPS.length); assert.match(await page.title(), /OS APPs and Downs/);
   assert.ok((await page.locator('#footer').innerText()).includes('כל הזכויות שמורות')); assert.equal(await page.locator('#bottomnav a').count(), 3);
-  assert.ok(await page.locator('.card .app-icon').evaluateAll((els) => els.every((i) => i.complete && i.naturalWidth > 0)), 'icons loaded');
+  assert.ok(await imagesOk(page, '.card .app-icon'), 'icons loaded');
   assert.deepEqual(errors, []); await ctx.close();
 });
 await step('search: Hebrew, English, niqqud, any word order, empty state, clear', async () => {
@@ -74,7 +76,7 @@ await step('app page: hero, links, screenshots + lightbox, what is new, info, sh
   assert.equal(await page.locator('.detail h1').innerText(), 'StepUp'); assert.equal(page.url().endsWith('#/app/stepup'), true);
   assert.match(await page.locator('.cta a').first().getAttribute('href'), /^https:\/\/ohadsam\.github\.io\/distance_analyzer\/$/);
   assert.match(await page.locator('.cta a >> text=APK').getAttribute('href'), /releases\/latest\/download\/stepup\.apk$/);
-  assert.ok(await page.locator('.shots img').evaluateAll((els) => els.length >= 4 && els.every((i) => i.complete && i.naturalWidth > 0)), 'screenshots loaded');
+  assert.ok(await imagesOk(page, '.shots img'), 'screenshots loaded'); assert.ok(await page.locator('.shots img').count() >= 4);
   await page.click('.shot >> nth=1'); await page.waitForSelector('dialog.lightbox[open]'); assert.match(await page.locator('.lb-cap').innerText(), /2\/\d/); await page.keyboard.press('ArrowLeft'); await page.keyboard.press('Escape'); await page.waitForSelector('dialog.lightbox', { state: 'detached' });
   const more = page.locator('.inst .more').first(); assert.equal(await more.getAttribute('aria-expanded'), 'false'); await more.click(); assert.equal(await more.getAttribute('aria-expanded'), 'true');
   assert.equal(await page.locator('.inst .steps .step').count(), 7); assert.ok(await page.locator('.phone').first().isVisible());
@@ -91,7 +93,7 @@ await step('every app page renders without errors, with loaded images and a work
   for (const a of APPS) {
     await page.goto(`${base}#/app/${a.id}`); await page.reload(); await page.waitForSelector('.detail h1');
     assert.ok((await page.locator('.detail h1').innerText()).length > 1, a.id);
-    assert.ok(await page.locator('.detail img').evaluateAll((els) => els.every((i) => i.complete && i.naturalWidth > 0)), `${a.id} images`);
+    assert.ok(await imagesOk(page, '.detail img'), `${a.id} images`);
     const hrefs = await page.locator('.detail a[href^="https"]').evaluateAll((l) => l.map((x) => x.href)); assert.ok(hrefs.length >= 2, `${a.id} links`);
     if (a.shots.length === 0) assert.ok(await page.locator('text=צילומי מסך מהמכשיר יתווספו').count(), `${a.id} placeholder`);
     if (a.apk.private) assert.ok(await page.locator('.note.warn').count(), `${a.id} private note`);

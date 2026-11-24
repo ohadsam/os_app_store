@@ -5,6 +5,7 @@ import { icon } from '../icons.js';
 import { filterApps, sortApps, platformCounts, tagCounts, isRecent } from '../catalog.js';
 import { getFavs, toggleFav, getInstalled } from '../store.js';
 import { card } from './card.js';
+import { art } from './art.js';
 
 export const state = { q: '', platform: 'all', category: '', tags: new Set(), onlyFavs: false, sort: 'updated' };
 const activeCount = () => (state.category ? 1 : 0) + state.tags.size + (state.onlyFavs ? 1 : 0) + (state.sort !== 'updated' ? 1 : 0);
@@ -33,7 +34,7 @@ export function homePage(catalog, rerender) {
     setChildren(results,
       recent.length ? h('section', { 'aria-labelledby': 'h-recent' }, h('h2', { id: 'h-recent', class: 'sec' }, t('home.recent')), grid(recent)) : null,
       h('section', { 'aria-labelledby': 'h-all' }, h('div', { class: 'sec-row' }, h('h2', { id: 'h-all', class: 'sec' }, t('home.all')), h('span', { class: 'muted' }, list.length === 1 ? t('home.count1') : t('home.count', { n: list.length }))),
-        list.length ? grid(list) : h('div', { class: 'empty' }, h('b', null, t('home.none')), h('p', null, t('home.noneHint')), h('button', { class: 'btn btn-ghost', type: 'button', onclick: () => { Object.assign(state, { q: '', platform: 'all', category: '', onlyFavs: false, sort: 'updated' }); state.tags.clear(); rerender(); } }, t('filter.clear')))));
+        list.length ? grid(list) : h('div', { class: 'empty' }, art('states/no-results', { w: 180, h: 135 }), h('b', null, t('home.none')), h('p', null, t('home.noneHint')), h('button', { class: 'btn btn-ghost', type: 'button', onclick: () => { Object.assign(state, { q: '', platform: 'all', category: '', onlyFavs: false, sort: 'updated' }); state.tags.clear(); rerender(); } }, t('filter.clear')))));
     announce(list.length === 1 ? t('home.count1') : t('home.count', { n: list.length }));
   }
   function paint() { paintChips(); paintResults(); }

@@ -65,3 +65,7 @@ test('primary action, update badge and recency', () => {
   const day = Date.parse('2026-11-24T12:00:00Z'); assert.equal(daysSince('2026-11-22', day), 2); assert.equal(isRecent({ updated: '2026-11-20' }, day), true); assert.equal(isRecent({ updated: '2026-09-01' }, day), false);
   assert.equal(norm('שָׁלוֹם "א"'), 'שלום א');
 });
+test('the AI-made store art is complete: every art pair, category icon and hero exists and is clean SVG', () => {
+  const files = [...['states/no-results', 'states/offline', 'states/load-error', 'states/coming-soon', 'install/download', 'install/allow-once', 'install/done'].flatMap((n) => [`${n}-light`, `${n}-dark`]), 'home/hero-light', 'home/hero-dark', 'bg/bg-light', 'bg/bg-dark', ...Object.keys(raw.categories).map((c) => `categories/cat-${c}`)];
+  for (const f of files) { const p = `web/art/store/${f}.svg`; assert.ok(existsSync(p), p); const s = readFileSync(p, 'utf8'); assert.ok(s.length < 12000, `${p} too big`); assert.ok(!/<(text|image|filter|style|script|foreignObject)\b/i.test(s), `${p} has a forbidden element`); assert.ok(!/(href|url)\(?=?["']?https?:/i.test(s), `${p} references the network`); }
+});

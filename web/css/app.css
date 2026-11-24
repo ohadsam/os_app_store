@@ -84,3 +84,20 @@ dialog.lightbox{border:0;background:transparent;color:#fff;max-inline-size:100vw
 @media (max-width:420px){.brand-text small{display:none}.lang-btn{padding-inline:12px}.brand-text b{font-size:.95rem}}
 @media (min-width:720px){.hero{padding:28px}.hero h1{font-size:2rem}h1{font-size:2rem}.bottomnav{inset-inline:auto;inset-inline-start:50%;translate:-50% 0;border-radius:20px 20px 0 0;inline-size:min(520px,100%);border-inline:1px solid var(--line)}:root[dir=rtl] .bottomnav{translate:50% 0}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* AI-made store art: light/dark pairs, category icons (mask = recolourable), hero + page backgrounds */
+.art{display:inline-block;line-height:0}.art img{max-inline-size:100%;block-size:auto}.art-dark{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .art-light{display:none}:root:not([data-theme=light]) .art-dark{display:inline}}
+:root[data-theme=dark] .art-light{display:none}:root[data-theme=dark] .art-dark{display:inline}
+.art.inline{vertical-align:middle;margin-inline-end:8px}.note.coming{display:flex;align-items:center;gap:12px}
+.art-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px}.art-strip figure{margin:0;text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px}.art-strip figcaption{font-weight:700;margin-block-start:4px}
+.cat-ic{display:inline-block;inline-size:18px;block-size:18px;background:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;vertical-align:middle;margin-inline-end:4px}.badge.b-cat{display:inline-flex;align-items:center}
+.cat-ic[data-cat=health]{-webkit-mask-image:url(../art/store/categories/cat-health.svg);mask-image:url(../art/store/categories/cat-health.svg)}.cat-ic[data-cat=family]{-webkit-mask-image:url(../art/store/categories/cat-family.svg);mask-image:url(../art/store/categories/cat-family.svg)}.cat-ic[data-cat=faith]{-webkit-mask-image:url(../art/store/categories/cat-faith.svg);mask-image:url(../art/store/categories/cat-faith.svg)}.cat-ic[data-cat=tools]{-webkit-mask-image:url(../art/store/categories/cat-tools.svg);mask-image:url(../art/store/categories/cat-tools.svg)}.cat-ic[data-cat=time]{-webkit-mask-image:url(../art/store/categories/cat-time.svg);mask-image:url(../art/store/categories/cat-time.svg)}.cat-ic[data-cat=events]{-webkit-mask-image:url(../art/store/categories/cat-events.svg);mask-image:url(../art/store/categories/cat-events.svg)}.cat-ic[data-cat=files]{-webkit-mask-image:url(../art/store/categories/cat-files.svg);mask-image:url(../art/store/categories/cat-files.svg)}.cat-ic[data-cat=dev]{-webkit-mask-image:url(../art/store/categories/cat-dev.svg);mask-image:url(../art/store/categories/cat-dev.svg)}.cat-ic[data-cat=travel]{-webkit-mask-image:url(../art/store/categories/cat-travel.svg);mask-image:url(../art/store/categories/cat-travel.svg)}
+.hero{background:url(../art/store/home/hero-light.svg) center top/cover no-repeat,linear-gradient(135deg,var(--brand),var(--brand2));min-block-size:210px;justify-content:flex-end;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .hero{background-image:url(../art/store/home/hero-dark.svg),linear-gradient(135deg,#262a55,#0e1020)}}
+:root[data-theme=dark] .hero{background-image:url(../art/store/home/hero-dark.svg),linear-gradient(135deg,#262a55,#0e1020)}
+.empty .art{margin-block-end:4px}
+body{background-image:url(../art/store/bg/bg-light.svg)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) body{background-image:url(../art/store/bg/bg-dark.svg)}}
+:root[data-theme=dark] body{background-image:url(../art/store/bg/bg-dark.svg)}
+.hero{padding-block-start:116px;min-block-size:250px}@media (min-width:720px){.hero{padding-block-start:130px}}

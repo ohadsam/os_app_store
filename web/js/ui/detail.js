@@ -6,6 +6,7 @@ import { getFavs, toggleFav, getInstalled, setInstalled } from '../store.js';
 import { needsUpdate } from '../catalog.js';
 import { appIcon, platformBadges, actionButton } from './card.js';
 import { openLightbox } from './lightbox.js';
+import { art, catIcon } from './art.js';
 import { flowSection, steps } from './guide.js';
 import { waLink, shareText, appUrl } from '../share.js';
 
@@ -48,7 +49,7 @@ export function detailPage(catalog, id) {
     setChildren(root,
       h('a', { class: 'back', href: '#/' }, icon('back', 'flip-rtl'), t('nav.back')),
       h('header', { class: 'hero-app' }, appIcon(app, 96),
-        h('div', { class: 'hero-main' }, h('h1', null, loc(app.name)), h('p', { class: 'lead' }, loc(app.tagline)), h('div', { class: 'badges' }, platformBadges(app), h('span', { class: 'badge' }, `${cat.icon} ${loc(cat)}`)),
+        h('div', { class: 'hero-main' }, h('h1', null, loc(app.name)), h('p', { class: 'lead' }, loc(app.tagline)), h('div', { class: 'badges' }, platformBadges(app), h('span', { class: 'badge b-cat' }, catIcon(app.category), loc(cat))),
           h('p', { class: 'card-meta' }, `${t('card.version', { v: app.version })} · ${t('detail.updated')}: ${fmtDate(app.updated)}`))),
       h('div', { class: 'row-actions cta' }, webBtn, apkBtn, !webBtn && !apkBtn ? h('p', { class: 'note' }, loc(app.apk.note) || t('detail.noApk')) : null),
       app.apk.note.he && apkBtn ? h('p', { class: 'note' }, loc(app.apk.note)) : null,
@@ -56,7 +57,7 @@ export function detailPage(catalog, id) {
       upd ? h('p', { class: 'note warn', role: 'status' }, t('detail.updateAvail', { v: app.version })) : null,
       shareBox,
       h('section', { 'aria-labelledby': 'h-shots' }, h('h2', { class: 'sec', id: 'h-shots' }, t('detail.screens')),
-        app.shots.length ? h('div', { class: 'shots', tabindex: '0', role: 'group', 'aria-label': t('detail.screens') }, app.shots.map((s, i) => h('button', { class: 'shot', type: 'button', onclick: () => openLightbox(app, i), 'aria-label': t('shot.alt', { name: loc(app.name), cap: loc(s.caption) }) }, h('img', { src: s.file, alt: '', loading: 'lazy' })))) : h('p', { class: 'note' }, t('detail.noShots'))),
+        app.shots.length ? h('div', { class: 'shots', tabindex: '0', role: 'group', 'aria-label': t('detail.screens') }, app.shots.map((s, i) => h('button', { class: 'shot', type: 'button', onclick: () => openLightbox(app, i), 'aria-label': t('shot.alt', { name: loc(app.name), cap: loc(s.caption) }) }, h('img', { src: s.file, alt: '', loading: 'lazy' })))) : h('div', { class: 'note coming' }, art('states/coming-soon', { w: 100, h: 133 }), t('detail.noShots'))),
       h('section', { 'aria-labelledby': 'h-about' }, h('h2', { class: 'sec', id: 'h-about' }, t('detail.about')), h('p', { class: 'prose' }, loc(app.description)),
         h('h3', null, t('detail.highlights')), h('ul', { class: 'bullets' }, locList(app.highlights).map((x) => h('li', null, x))), h('div', { class: 'badges' }, app.tags.map((k) => h('span', { class: 'tag' }, `#${loc(catalog.tags[k])}`)))),
       locList(app.whatsNew).length ? h('section', { 'aria-labelledby': 'h-new' }, h('h2', { class: 'sec', id: 'h-new' }, t('detail.whatsNew', { v: app.version })), h('ul', { class: 'bullets' }, locList(app.whatsNew).map((x) => h('li', null, x)))) : null,

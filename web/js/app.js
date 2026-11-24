@@ -9,6 +9,7 @@ import { homePage } from './ui/home.js';
 import { detailPage } from './ui/detail.js';
 import { guidePage } from './ui/guide.js';
 import { aboutPage } from './ui/about.js';
+import { art } from './ui/art.js';
 
 let catalog = null, offline = false;
 async function loadCatalog() {
@@ -34,13 +35,13 @@ function shell() {
 function render() {
   applyLang(); shell();
   const main = $('#app'), parts = (location.hash.slice(1) || '/').split('/');
-  if (!catalog) { setChildren(main, h('section', { class: 'page' }, h('p', { class: 'note' }, t('load.error')), h('button', { class: 'btn btn-primary', type: 'button', onclick: boot }, t('retry')))); return; }
+  if (!catalog) { setChildren(main, h('section', { class: 'page empty' }, art('states/load-error', { w: 180, h: 135 }), h('p', { class: 'note' }, t('load.error')), h('button', { class: 'btn btn-primary', type: 'button', onclick: boot }, t('retry')))); return; }
   let view;
   if (parts[1] === 'app' && parts[2]) view = detailPage(catalog, parts[2]);
   else if (parts[1] === 'guide') view = guidePage();
   else if (parts[1] === 'about') view = aboutPage(catalog);
   else view = homePage(catalog, render);
-  setChildren(main, offline ? h('p', { class: 'note offline' }, t('offline')) : null, view);
+  setChildren(main, offline ? h('p', { class: 'note offline' }, art('states/offline', { w: 48, h: 36, cls: 'inline' }), t('offline')) : null, view);
   if (!(parts[1] === 'app' && parts[2])) document.title = t('app.title');
 }
 
