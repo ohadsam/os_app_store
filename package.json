@@ -1,0 +1,23 @@
+{
+  "name": "os-app-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "OS APPs and Downs - the app store PWA",
+  "scripts": {
+    "test": "node --test tests/unit/*.test.js",
+    "check": "node scripts/static-checks.mjs",
+    "e2e": "node tests/e2e/smoke.mjs",
+    "journey": "node tests/e2e/journey.mjs",
+    "serve": "node scripts/serve.mjs",
+    "bump": "node scripts/bump-version.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "shots": "node scripts/capture-shots.mjs",
+    "native-icons": "node scripts/make-native-icons.mjs",
+    "sync": "node scripts/sync-catalog.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.10.2",
+    "playwright": "1.63.0"
+  }
+}

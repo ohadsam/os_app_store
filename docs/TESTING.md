@@ -1,0 +1,6 @@
+# Testing
+
+`npm run check` (syntax, banned APIs, CSP/SW consistency) · `npm test` (node:test: catalog schema + real files, search/filter/sort, i18n parity + guide steps, store, sync parsing, version/changelog/docs) · `npm run e2e` (Playwright: boot, RTL/LTR, search, filters, favourites, detail, show-more, lightbox, guide, about, language + theme, offline catalog fallback, deep link, axe over every screen in he+light and en+dark, 320 px no horizontal scroll, no console errors; `ONLY="step name"` runs one) · `npm run journey -- <dir>` (screenshots of every screen in he + en and a usability audit: broken images, overflow, tap-target sizes; look at them).
+Screenshots of the *store* come from the journey; screenshots of the *apps* come from `npm run shots` (runs the apps from local clones) or from the apps' own e2e/guide images - never by hand.
+Gotchas: `addInitScript` applies on the next load; CSP forbids `addScriptTag` (use `evaluate`); the e2e server is `scripts/serve.mjs`; service workers are blocked in most steps (`serviceWorkers: 'block'`), one step enables them.
+Full regression at the end of every big stage: check + test + e2e + journey (open the images) + sync `--check`, then CI and the live Pages URL.

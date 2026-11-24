@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, 'claude/**', 'ccr-*' ]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    name: Web checks (static, unit, e2e + axe)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Static + security checks
+        run: npm run check
+      - name: Unit tests
+        run: npm test
+      - name: Install Chromium for e2e
+        run: npx playwright install --with-deps chromium
+      - name: End-to-end tests
+        run: npm run e2e
+      - name: Dependency audit (dev tooling only - the shipped app has no dependencies)
+        run: npm audit --audit-level=high

@@ -1,0 +1,42 @@
+name: Sync catalog
+
+# Keeps web/data/apps.json equal to the real apps (versions, update dates, English what's-new). Daily, on demand, and callable from the
+# other apps' release step (Actions -> Sync catalog -> Run workflow, or mcp__github__actions_run_trigger).
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: sync-catalog
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Sync from the apps' repositories
+        env:
+          CATALOG_TOKEN: ${{ secrets.CATALOG_TOKEN }}   # optional: read access to private app repos
+        run: node scripts/sync-catalog.mjs --write
+      - name: Validate the catalog
+        run: npm ci && npm run check && npm test
+      - name: Commit and deploy if the catalog changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- web/data/apps.json; then echo "catalog unchanged"; exit 0; fi
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/data/apps.json
+          git commit -m "Catalog: sync app versions"
+          git push origin HEAD:main
+          gh workflow run pages.yml --ref main   # pushes made with GITHUB_TOKEN do not start other workflows
