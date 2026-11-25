@@ -7,3 +7,6 @@ Logo: a storefront awning over a box with up and down arrows (indigo->cyan round
 
 ## Second ChatGPT round (1.3.0)
 Integrated: refreshed hero, About illustration, nine category badges (home category row). **Not integrated:** the logo lockups, wordmarks, share card and splash of this round spell the name "OS APPs and Downs" (with "and"); the owner decided on "OS APPs & Downs" - they must be regenerated with the ampersand (follow-up prompt in the chat / `docs/prompts/LOGO_LOCKUP_PROMPT.md`). The symbol (`icon.svg`) is unchanged.
+
+## Third round (1.4.0): the logo with the name
+The lockups were regenerated with the ampersand: custom lettering "OS APPs & Downs" (APPs emphasised in indigo / cyan, the up arrow over the A, the down arrow under the n). Used: `brand/logo-horizontal-*` in the header (light/dark pair, `ui/art.js`), `brand/logo-stacked-*` on About, `social/share-card.png` as `og:image` (link previews). Not used on purpose: `splash.png` (an installed PWA builds its own splash from the icon + background colour), the wordmark-only and Hebrew-line files (kept in the owner's ZIP for later use). The hero art has a fixed height; the fill below it uses the art's sampled bottom colours so there is no seam.

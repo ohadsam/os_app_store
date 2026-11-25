@@ -25,7 +25,7 @@ function shell() {
   const navLink = (href, key, ic, on) => h('a', { class: `nav-link${on ? ' on' : ''}`, href, 'aria-current': on ? 'page' : null }, icon(ic), h('span', null, t(key)));
   const th = getTheme();
   setChildren($('#topbar'),
-    h('a', { class: 'brand', href: '#/', 'aria-label': t('app.name') }, h('img', { src: 'icon.svg', alt: '', width: 36, height: 36 }), h('span', { class: 'brand-text' }, h('b', null, t('app.name')), h('small', null, t('app.tag')))),
+    h('a', { class: 'brand', href: '#/', 'aria-label': t('app.name') }, art('brand/logo-horizontal', { w: 168, h: 42, cls: 'brand-art' })),
     h('div', { class: 'top-actions' },
       h('button', { class: 'icon-btn', type: 'button', 'aria-label': `${t('top.theme')}: ${t(`theme.${th}`)}`, title: t(`theme.${th}`), onclick: () => { setTheme(THEMES[(THEMES.indexOf(th) + 1) % 3]); applyTheme(); shell(); } }, icon(th === 'dark' ? 'moon' : 'sun')),
       h('button', { class: 'btn btn-ghost lang-btn', type: 'button', lang: getLanguage() === 'he' ? 'en' : 'he', 'aria-label': t('top.langLabel'), onclick: () => { setLanguage(getLanguage() === 'he' ? 'en' : 'he'); render(); } }, icon('globe'), t('top.lang'))));

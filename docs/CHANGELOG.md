@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.4.0
+- The real logo: the horizontal lockup with the name "OS APPs & Downs" in the header (light/dark pair), the stacked lockup on the About page, and a link-preview share card (`og:image`, WhatsApp etc.). Third ChatGPT round (the ampersand fix).
+
 ## 1.3.0
 - "Browse by category" row on the home page with nine new AI-made category badges (tap to filter, tap again to clear); refreshed hero banner and a new About-page illustration (second ChatGPT round, brand/illustration kit).
 

@@ -36,7 +36,7 @@ await step('boot: Hebrew RTL store with every app, hero, nav, footer, no errors'
   const { page, errors, ctx } = await newPage();
   assert.equal(await page.evaluate(() => document.documentElement.dir), 'rtl'); assert.equal(await page.evaluate(() => document.documentElement.lang), 'he');
   assert.equal(await allCards(page), APPS.length); assert.match(await page.title(), /OS APPs & Downs/);
-  assert.ok((await page.locator('#footer').innerText()).includes('כל הזכויות שמורות')); assert.equal(await page.locator('#bottomnav a').count(), 4);
+  assert.ok((await page.locator('#footer').innerText()).includes('כל הזכויות שמורות')); assert.equal(await page.locator('#bottomnav a').count(), 4); assert.ok(await imagesOk(page, '.brand img'), 'logo lockup loaded'); assert.equal(await page.locator('.brand').getAttribute('aria-label'), 'OS APPs & Downs');
   assert.ok(await imagesOk(page, '.card .app-icon'), 'icons loaded');
   assert.deepEqual(errors, []); await ctx.close();
 });

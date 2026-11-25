@@ -114,3 +114,11 @@ body{background-image:url(../art/store/bg/bg-light.svg)}
 .cats{display:flex;flex-direction:column;gap:6px}.cat-row{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-block:4px}.cat-row::-webkit-scrollbar{display:none}
 .cat-btn{flex:none;display:flex;flex-direction:column;align-items:center;gap:4px;min-inline-size:76px;padding:6px 4px;border:2px solid transparent;border-radius:14px;background:transparent;color:var(--ink);font:inherit;font-size:.78rem;cursor:pointer}.cat-btn.on{background:var(--tint);border-color:var(--brand);font-weight:700}.cat-btn img{border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.18)}
 .about-art{display:flex;justify-content:center}
+
+/* brand lockup in the header */
+.brand-art{display:block}.brand-art img{inline-size:auto;block-size:40px;max-inline-size:100%}.brand{min-inline-size:0;flex:1 1 auto}@media (max-width:420px){.brand-art img{block-size:34px}}
+.hero{background-size:auto 220px,cover}@media (min-width:720px){.hero{background-size:cover,cover}}
+/* the hero art has a fixed size; below it the fill continues in the art's own bottom colours (sampled), so there is no visible seam */
+.hero{background-image:url(../art/store/home/hero-light.svg),linear-gradient(90deg,#4159e2,#3a64e1)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .hero{background-image:url(../art/store/home/hero-dark.svg),linear-gradient(90deg,#132c4d,#0e354b)}}
+:root[data-theme=dark] .hero{background-image:url(../art/store/home/hero-dark.svg),linear-gradient(90deg,#132c4d,#0e354b)}

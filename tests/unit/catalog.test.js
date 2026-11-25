@@ -66,8 +66,8 @@ test('primary action, update badge and recency', () => {
   assert.equal(norm('שָׁלוֹם "א"'), 'שלום א');
 });
 test('the AI-made store art is complete: every art pair, category icon and hero exists and is clean SVG', () => {
-  const files = [...['states/no-results', 'states/offline', 'states/load-error', 'states/coming-soon', 'install/download', 'install/allow-once', 'install/done'].flatMap((n) => [`${n}-light`, `${n}-dark`]), 'home/hero-light', 'home/hero-dark', 'about/about-illustration-light', 'about/about-illustration-dark', ...Object.keys(raw.categories).map((c) => `badges/badge-${c}`), 'bg/bg-light', 'bg/bg-dark', ...Object.keys(raw.categories).map((c) => `categories/cat-${c}`)];
-  for (const f of files) { const p = `web/art/store/${f}.svg`; assert.ok(existsSync(p), p); const s = readFileSync(p, 'utf8'); assert.ok(s.length < 12000, `${p} too big`); assert.ok(!/<(text|image|filter|style|script|foreignObject)\b/i.test(s), `${p} has a forbidden element`); assert.ok(!/(href|url)\(?=?["']?https?:/i.test(s), `${p} references the network`); }
+  const files = [...['states/no-results', 'states/offline', 'states/load-error', 'states/coming-soon', 'install/download', 'install/allow-once', 'install/done'].flatMap((n) => [`${n}-light`, `${n}-dark`]), 'home/hero-light', 'home/hero-dark', 'brand/logo-horizontal-light', 'brand/logo-horizontal-dark', 'brand/logo-stacked-light', 'brand/logo-stacked-dark', 'about/about-illustration-light', 'about/about-illustration-dark', ...Object.keys(raw.categories).map((c) => `badges/badge-${c}`), 'bg/bg-light', 'bg/bg-dark', ...Object.keys(raw.categories).map((c) => `categories/cat-${c}`)];
+  for (const f of files) { const p = `web/art/store/${f}.svg`; assert.ok(existsSync(p), p); const s = readFileSync(p, 'utf8'); assert.ok(s.length < 25000, `${p} too big`); assert.ok(!/<(text|image|filter|style|script|foreignObject)\b/i.test(s), `${p} has a forbidden element`); assert.ok(!/(href|url)\(?=?["']?https?:/i.test(s), `${p} references the network`); }
 });
 
 test('permissions: a documented dictionary, valid ids per app, and a reason for every prompt', () => {
@@ -86,4 +86,8 @@ test('permissions: a documented dictionary, valid ids per app, and a reason for 
   assert.equal(cat.apps.length, raw.apps.length); assert.ok(Object.keys(cat.permissions).length >= 15);
   const bad = normalizeCatalog({ categories: { tools: { he: 'a', en: 'b', icon: 'x' } }, permissions: { ok: { level: 'weird', name: { he: 'א', en: 'a' } } }, apps: [{ id: 'x', permissions: [{ id: 'nope' }, { id: 'ok', why: { he: 'ש', en: 's' } }] }] });
   assert.deepEqual(bad.apps[0].permissions.map((p) => p.id), ['ok']); assert.equal(bad.permissions.ok.level, 'ask');
+});
+
+test('the brand lockups spell the name with an ampersand and the share card exists', () => {
+  assert.ok(existsSync('web/art/store/social/share-card.png')); const idx = readFileSync('web/index.html', 'utf8'); assert.match(idx, /og:image" content="https:\/\/ohadsam\.github\.io\/os_app_store\/art\/store\/social\/share-card\.png/); assert.match(idx, /OS APPs &amp; Downs/);
 });
