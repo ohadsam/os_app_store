@@ -2,7 +2,7 @@
 import { getLang, setLang } from './store.js';
 
 const he = {
-  'app.name': 'OS APPs and Downs', 'app.tag': 'חנות האפליקציות של OS', 'app.title': 'OS APPs and Downs - חנות האפליקציות',
+  'app.name': 'OS APPs & Downs', 'app.tag': 'חנות האפליקציות של OS', 'app.title': 'OS APPs & Downs - חנות האפליקציות',
   'nav.store': 'החנות', 'nav.guide': 'איך מתקינים', 'nav.about': 'אודות', 'nav.back': 'חזרה לחנות', 'nav.menu': 'תפריט',
   'top.lang': 'EN', 'top.langLabel': 'החלפת שפה לאנגלית', 'top.theme': 'מצב תצוגה', 'theme.auto': 'אוטומטי', 'theme.light': 'בהיר', 'theme.dark': 'כהה',
   'search.label': 'חיפוש אפליקציות', 'search.ph': 'חיפוש אפליקציה או נושא...', 'search.clear': 'ניקוי החיפוש',
@@ -60,8 +60,8 @@ const he = {
   'mock.pb.title': 'האפליקציה נחסמה להגנתך', 'mock.pb.body': 'Play Protect חוסם אפליקציות שהוא לא מכיר.', 'mock.pb.more': 'פרטים נוספים', 'mock.pb.anyway': 'התקנה בכל זאת', 'mock.pb.ok': 'אישור',
   'mock.perm.title': 'לאפשר ל-{app} לשלוח לך התראות?', 'mock.perm.allow': 'אפשר', 'mock.perm.deny': 'אל תאפשר',
   'set.title': 'הגדרות', 'set.lang': 'שפה', 'set.langHint': 'ברירת המחדל היא עברית. הבחירה נשמרת במכשיר הזה.', 'set.he': 'עברית', 'set.en': 'English', 'set.theme': 'מראה', 'set.data': 'הנתונים שלי', 'set.dataText': 'המועדפות וסימוני "התקנתי" נשמרים רק במכשיר הזה.', 'set.clear': 'איפוס מועדפות וסימוני התקנה', 'set.cleared': 'האיפוס בוצע', 'set.confirm': 'למחוק את כל המועדפות וסימוני ההתקנה במכשיר הזה?',
-  'about.title': 'אודות החנות', 'about.what': 'מה זה?', 'about.whatText': 'OS APPs and Downs היא החנות הפרטית של האפליקציות שפיתחתי: אתרים ו-PWA נפתחים בלחיצה, ואפליקציות אנדרואיד מורדות כקובץ APK עם הוראות התקנה. הגרסה שמוצגת כאן היא תמיד האחרונה.',
-  'about.name': 'למה השם הזה?', 'about.nameText': 'OS הם ראשי התיבות שלי. "Ups and Downs" זה לעלות ולהוריד, כאן כתוב APPs כמו Application, ולכן OS APPs and Downs.',
+  'about.title': 'אודות החנות', 'about.what': 'מה זה?', 'about.whatText': 'OS APPs & Downs היא החנות הפרטית של האפליקציות שפיתחתי: אתרים ו-PWA נפתחים בלחיצה, ואפליקציות אנדרואיד מורדות כקובץ APK עם הוראות התקנה. הגרסה שמוצגת כאן היא תמיד האחרונה.',
+  'about.name': 'למה השם הזה?', 'about.nameText': 'OS הם ראשי התיבות שלי. "Ups and Downs" זה לעלות ולהוריד, כאן כתוב APPs כמו Application, ולכן OS APPs & Downs.',
   'about.rights': 'זכויות יוצרים', 'about.rightsText': 'כל הזכויות שמורות © {year} OS. אין להעתיק, להפיץ או לעשות שימוש מסחרי באפליקציות, בקוד או בתוכן ללא אישור בכתב.',
   'about.ai': 'תמונות ואיורים', 'about.aiText': 'כל התמונות, האייקונים והאיורים בחנות ובאפליקציות נוצרו בעזרת כלי בינה מלאכותית שונים. צילומי המסך נלקחו אוטומטית מהאפליקציות עצמן. אם יש לכם הסתייגות או בעיה עם תוכן כלשהו, אפשר לפנות ואטפל בכך מהר.',
   'about.contact': 'יצירת קשר ודיווח', 'about.contactText': 'לדיווח על בעיה, בקשת הסרה או שאלה, פותחים פנייה בעמוד ה-Issues ב-GitHub.', 'about.contactBtn': 'פתיחת פנייה',
@@ -74,7 +74,7 @@ const he = {
 };
 
 const en = {
-  'app.name': 'OS APPs and Downs', 'app.tag': "OS's app store", 'app.title': 'OS APPs and Downs - the app store',
+  'app.name': 'OS APPs & Downs', 'app.tag': "OS's app store", 'app.title': 'OS APPs & Downs - the app store',
   'nav.store': 'Store', 'nav.guide': 'How to install', 'nav.about': 'About', 'nav.back': 'Back to the store', 'nav.menu': 'Menu',
   'top.lang': 'עב', 'top.langLabel': 'Switch language to Hebrew', 'top.theme': 'Appearance', 'theme.auto': 'Automatic', 'theme.light': 'Light', 'theme.dark': 'Dark',
   'search.label': 'Search apps', 'search.ph': 'Search an app or topic...', 'search.clear': 'Clear search',
@@ -132,8 +132,8 @@ const en = {
   'mock.pb.title': 'App blocked to protect your device', 'mock.pb.body': 'Play Protect blocks apps it does not recognise.', 'mock.pb.more': 'More details', 'mock.pb.anyway': 'Install anyway', 'mock.pb.ok': 'OK',
   'mock.perm.title': 'Allow {app} to send you notifications?', 'mock.perm.allow': 'Allow', 'mock.perm.deny': "Don't allow",
   'set.title': 'Settings', 'set.lang': 'Language', 'set.langHint': 'The default is Hebrew. Your choice is saved on this device.', 'set.he': 'עברית', 'set.en': 'English', 'set.theme': 'Appearance', 'set.data': 'My data', 'set.dataText': 'Favourites and "I installed" marks are stored only on this device.', 'set.clear': 'Reset favourites and install marks', 'set.cleared': 'Reset done', 'set.confirm': 'Delete all favourites and install marks on this device?',
-  'about.title': 'About the store', 'about.what': 'What is this?', 'about.whatText': 'OS APPs and Downs is the private store for the apps I build: websites and PWAs open in one tap, and Android apps download as an APK with install instructions. The version shown here is always the latest.',
-  'about.name': 'Why this name?', 'about.nameText': 'OS are my initials. "Ups and Downs" is going up and down; here it is spelled APPs, as in Applications, so: OS APPs and Downs.',
+  'about.title': 'About the store', 'about.what': 'What is this?', 'about.whatText': 'OS APPs & Downs is the private store for the apps I build: websites and PWAs open in one tap, and Android apps download as an APK with install instructions. The version shown here is always the latest.',
+  'about.name': 'Why this name?', 'about.nameText': 'OS are my initials. "Ups and Downs" is going up and down; here it is spelled APPs, as in Applications, so: OS APPs & Downs.',
   'about.rights': 'Copyright', 'about.rightsText': 'All rights reserved © {year} OS. Do not copy, distribute or use the apps, code or content commercially without written permission.',
   'about.ai': 'Images and artwork', 'about.aiText': 'All pictures, icons and illustrations in the store and in the apps were created with various AI tools. Screenshots are taken automatically from the apps themselves. If you have any objection or problem with any content, contact me and I will handle it quickly.',
   'about.contact': 'Contact and reports', 'about.contactText': 'To report a problem, ask for removal or ask a question, open an issue on GitHub.', 'about.contactBtn': 'Open an issue',

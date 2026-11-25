@@ -1,4 +1,4 @@
-# OS APPs and Downs
+# OS APPs & Downs
 
 The private app store of OS (a PWA): every app I built, in one place. Websites and PWAs open in one tap; Android apps download as APK files with an illustrated install guide. Search, filters, tags, screenshots, versions, release dates. Hebrew first (RTL), English equal. No server, no account, no tracking.
 

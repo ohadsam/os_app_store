@@ -1,4 +1,4 @@
-# User guide - OS APPs and Downs
+# User guide - OS APPs & Downs
 
 **Open the store:** `https://ohadsam.github.io/os_app_store/` - install it from the browser menu ("Install app" / "Add to Home screen") to get it as an app that also works offline. Language (עב / EN) and light/dark are in the top bar.
 

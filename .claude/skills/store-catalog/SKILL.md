@@ -1,6 +1,6 @@
 ---
 name: store-catalog
-description: How to add, update or remove an app in the owner's store "OS APPs and Downs" (web/data/apps.json in ohadsam/os_app_store) and how other apps' sessions keep it current. Use when an app ships a new version, a new app is created, an APK/PWA link or package changes, screenshots need refreshing, or when asked to "update the store".
+description: How to add, update or remove an app in the owner's store "OS APPs & Downs" (web/data/apps.json in ohadsam/os_app_store) and how other apps' sessions keep it current. Use when an app ships a new version, a new app is created, an APK/PWA link or package changes, screenshots need refreshing, or when asked to "update the store".
 ---
 
 # Updating the store catalog

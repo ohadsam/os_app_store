@@ -62,7 +62,7 @@ read docs -> small change -> unit test with the logic -> e2e step for the flow -
 Outbound network is proxied; only the session's repo is writable (others are read-only clones); GitHub via MCP tools (`mcp__github__*`, load with ToolSearch; `gh` only for search); no Android SDK; Playwright + Chromium preinstalled (`npm i` for deps; never `playwright install`). Run long jobs in the background and wait with Monitor (`until grep ... log`); never `pkill`; never edit served web files while e2e runs. A Stop hook may force commit+push when the tree is dirty. Schedule CI re-checks with `send_later` instead of polling.
 
 ## 6b. The store
-Every app of the owner is listed in the store "OS APPs and Downs" (`ohadsam/os_app_store`, https://ohadsam.github.io/os_app_store/). Shipping a version or creating a new app includes updating its catalog entry (release-checklist step "Store - update ..."; how-to in the store repo's `docs/CATALOG.md`).
+Every app of the owner is listed in the store "OS APPs & Downs" (`ohadsam/os_app_store`, https://ohadsam.github.io/os_app_store/). Shipping a version or creating a new app includes updating its catalog entry (release-checklist step "Store - update ..."; how-to in the store repo's `docs/CATALOG.md`).
 
 ## 7. Skill hygiene
 This skill and the app's release-checklist are living documents: when a step was missing or a claim wrong, fix the file in the same change (release-checklist §5). Keep this file short; details belong in `references/`.

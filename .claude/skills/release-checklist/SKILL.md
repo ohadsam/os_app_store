@@ -1,9 +1,9 @@
 ---
 name: release-checklist
-description: Mandatory checklist for every change to OS APPs and Downs (the owner's app-store PWA, repo ohadsam/os_app_store) - standing rules, five reviews, tests with screenshots, docs, the catalog sync that checks EVERY app for a newer version, ship and live verification. Use before calling anything done, after any change to web/, the catalog, scripts or docs, and whenever the owner says "run the release checklist".
+description: Mandatory checklist for every change to OS APPs & Downs (the owner's app-store PWA, repo ohadsam/os_app_store) - standing rules, five reviews, tests with screenshots, docs, the catalog sync that checks EVERY app for a newer version, ship and live verification. Use before calling anything done, after any change to web/, the catalog, scripts or docs, and whenever the owner says "run the release checklist".
 ---
 
-# Release checklist - OS APPs and Downs
+# Release checklist - OS APPs & Downs
 
 A **PWA-only** store (`web/`, vanilla JS, no build step, no dependencies) on GitHub Pages; `main` is primary. Same pipeline and quality bar as the sister apps (StepUp, SonRise); the generic method is `.claude/skills/app-development/` (ignore its Android parts). Do not skip or reorder steps; if a step finds nothing, say so and move on.
 **First:** confirm the previous batch's checklist really finished (task list) - a green `main` and a half-finished checklist look identical.

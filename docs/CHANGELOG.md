@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.1
+- The store is now named "OS APPs & Downs" (with the ampersand) in the app, manifest, page title, About text and all docs.
+
 ## 1.2.0
 - Every Android app page now lists its permissions from its real manifest, in three groups (asked in a pop-up / need a Settings screen / granted automatically), with what each is for and exactly what to tap; plus per-app setup notes (background location, battery, Autostart, alarms...).
 - Install guide: new steps for expanding "More details" in the Play Protect dialog and for the first-launch permission prompts; new collapsible troubleshooting list (Chrome block, Play Protect, unknown sources, Samsung Auto Blocker, Xiaomi, package conflict, restricted settings, work profile, background limits), shown on the guide and on every APK app page.

@@ -1,9 +1,9 @@
-# OS APPs and Downs - project context (START HERE)
+# OS APPs & Downs - project context (START HERE)
 
 Read this first in a new session. Keep it current: the release checklist requires it and `tests/unit/docs.test.js` fails when a source file is missing from the file map.
 
 ## What it is
-The owner's private **app store**, a PWA (no Android shell, no server, no account): a catalog of every app the owner built. Web apps / PWAs open from the store; Android apps (APK) download from their GitHub release with a full, illustrated install guide. Store look: search, platform chips, filter sheet (category, tags, sort, favourites), cards, detail pages with screenshots, what's new, info table, install instructions ("show more"), links, report-a-problem, copyright + "all images made with AI tools" notice. Hebrew first (RTL), English equal. Name: "OS APPs and Downs" (OS = the owner's initials; "Ups and Downs" with Ups spelled APPs). URL when deployed: `https://ohadsam.github.io/os_app_store/`.
+The owner's private **app store**, a PWA (no Android shell, no server, no account): a catalog of every app the owner built. Web apps / PWAs open from the store; Android apps (APK) download from their GitHub release with a full, illustrated install guide. Store look: search, platform chips, filter sheet (category, tags, sort, favourites), cards, detail pages with screenshots, what's new, info table, install instructions ("show more"), links, report-a-problem, copyright + "all images made with AI tools" notice. Hebrew first (RTL), English equal. Name: "OS APPs & Downs" (OS = the owner's initials; "Ups and Downs" with Ups spelled APPs). URL when deployed: `https://ohadsam.github.io/os_app_store/`.
 Owner's rules: `.claude/skills/release-checklist/SKILL.md` §0. Requests ledger: `docs/REQUESTS.md`. Catalog how-to: `docs/CATALOG.md`. Generic method: `.claude/skills/app-development/` (this store follows its PWA half; Android parts do not apply).
 
 ## Status (1.0.0)

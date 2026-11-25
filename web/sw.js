@@ -1,5 +1,5 @@
 // Offline-first service worker. VERSION equals version.json (scripts/bump-version.mjs + a unit test enforce it).
-const VERSION = '1.2.0';
+const VERSION = '1.2.1';
 const CACHE = `osapps-${VERSION}`;
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'version.json', 'icon.svg', 'css/app.css', 'data/apps.json',
   'js/app.js', 'js/appVersion.js', 'js/theme-boot.js', 'js/util.js', 'js/i18n.js', 'js/store.js', 'js/catalog.js', 'js/icons.js', 'js/share.js', 'js/update.js',

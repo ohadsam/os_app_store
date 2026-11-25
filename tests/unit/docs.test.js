@@ -16,5 +16,5 @@ test('CLAUDE.md points to the context file and the release checklist', () => {
 });
 test('the release checklist covers the catalog sync step and the other apps know how to update the store', () => {
   assert.match(readFileSync('.claude/skills/release-checklist/SKILL.md', 'utf8'), /sync-catalog/);
-  assert.match(readFileSync('docs/APP_RELEASE_STEP.md', 'utf8'), /OS APPs and Downs/);
+  assert.match(readFileSync('docs/APP_RELEASE_STEP.md', 'utf8'), /OS APPs & Downs/);
 });

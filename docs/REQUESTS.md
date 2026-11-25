@@ -11,7 +11,7 @@ Owner's brief, 2026-11-24 (Hebrew, voice dictated). Status: done / partial / ope
 8. A release-checklist file; use the app-creation skill (PWA only); same standards, tests, Playwright display tests. **done**
 9. Screenshots from the apps (run their tests) inside each description. **partial**: 6 web apps done; 5 native apps need a device
 10. Release dates, update dates, copyright, "all images from various AI tools; contact if a problem". **done**
-11. Name: OS APPs and Downs ("Ups" written APPs). **done**
+11. Name: OS APPs & Downs ("Ups" written APPs). **done**
 12. Token-efficient, beautiful, comfortable, high quality. **ongoing**
 13. Include every app built since the seating planner: StepUp, SonRise, FindMyCar, Itim, System Designer, Special Events, SmartRing, ClockWise, Extended File Manager, Tehilim Daily (+ seating planner). **done** (AITracker is private and not an app for others: left out; jira-addin-host and the small tools are not apps)
 14. (2026-11-24) Detailed per-app install explanation: all steps, what to expand in the pop-ups, permissions needed. **done (1.2.0)**: permissions from the real manifests + per-app setup notes + guide steps + troubleshooting. Still drawn illustrations, not real screenshots (pending).

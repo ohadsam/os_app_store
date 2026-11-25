@@ -1,9 +1,9 @@
 {
   "name": "os-app-store",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "type": "module",
-  "description": "OS APPs and Downs - the app store PWA",
+  "description": "OS APPs & Downs - the app store PWA",
   "scripts": {
     "test": "node --test tests/unit/*.test.js",
     "check": "node scripts/static-checks.mjs",
