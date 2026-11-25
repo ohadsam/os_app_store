@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-11-24",
+ "generated": "2026-11-25",
  "tags": {
   "workout": {
    "he": "אימון",
@@ -133,6 +133,14 @@
   "time": {
    "he": "זמן",
    "en": "Time"
+  },
+  "wearos": {
+   "he": "Wear OS",
+   "en": "Wear OS"
+  },
+  "timer": {
+   "he": "טיימר",
+   "en": "Timer"
   }
  },
  "categories": {
@@ -829,21 +837,23 @@
     "en": "Plan event seating on a canvas: tables, guests and auto-assign"
    },
    "description": {
-    "he": "כלי עברי לתכנון הושבה באירועים: גוררים שולחנות ואלמנטים על קנבס, מנהלים רשימת אורחים, מגדירים קרבה ואילוצים ומקבלים הושבה אוטומטית. כולל היסטוריה, ייצוא והדפסה. אתר בלבד, ללא שרת.",
-    "en": "A Hebrew event seating tool: drag tables and elements on a canvas, manage the guest list, set proximity and constraints and get automatic seating. Includes history, export and printing. A website only, no server."
+    "he": "כלי עברי לתכנון הושבה באירועים: גוררים שולחנות ואלמנטים על קנבס, מנהלים רשימת אורחים, מגדירים קרבה ואילוצים ומקבלים הושבה אוטומטית. בגרסה 2.2 נוספו קטגוריות לאורחים, כללי הסקה וקשרי אורחים בפריסות גרף. כולל היסטוריה, ייצוא והדפסה. אתר בלבד, ללא שרת.",
+    "en": "A Hebrew event seating tool: drag tables and elements on a canvas, manage the guest list, set proximity and constraints and get automatic seating. Version 2.2 adds guest categories, inference rules and graph layouts of guest relations. Includes history, export and printing. A website only, no server."
    },
    "highlights": {
     "he": [
      "קנבס עם זום, גרירה ושולחנות בצורות שונות",
      "ניהול אורחים, תגיות והושבה אוטומטית",
      "הדפסה, ייצוא ושמירה בדפדפן",
-     "פרויקט דוגמה לטעינה בלחיצה"
+     "פרויקט דוגמה לטעינה בלחיצה",
+     "קטגוריות לאורחים, כללי הסקה ופריסות גרף (גרסה 2.2)"
     ],
     "en": [
      "A canvas with zoom, drag and tables of several shapes",
      "Guest management, tags and automatic seating",
      "Printing, export and saving in the browser",
-     "A demo project you can load in one tap"
+     "A demo project you can load in one tap",
+     "Guest categories, inference rules and graph layouts (version 2.2)"
     ]
    },
    "platforms": [
@@ -859,7 +869,7 @@
     "free"
    ],
    "released": "2026-06-06",
-   "updated": "2026-06-25",
+   "updated": "2026-06-28",
    "color": "#9333ea",
    "icon": "art/icons/seating.svg",
    "links": {
@@ -884,11 +894,21 @@
      }
     }
    ],
-   "version": "2.1",
+   "version": "2.2",
    "status": "stable",
    "whatsNew": {
-    "he": [],
-    "en": []
+    "he": [
+     "קטגוריות לאורחים",
+     "כללי הסקה",
+     "פריסות גרף",
+     "מערכת גרסאות ו\"מה חדש\""
+    ],
+    "en": [
+     "Guest categories",
+     "Inference rules",
+     "Graph layouts",
+     "A version system and \"What's new\""
+    ]
    },
    "source": {
     "repo": "table_orginizer",
@@ -1334,25 +1354,29 @@
     "en": "ClockWise"
    },
    "tagline": {
-    "he": "ווידג׳ט שעון ומזג אוויר גדול, שקוף ויפה למסך הבית",
-    "en": "A big, transparent, beautiful clock and weather widget"
+    "he": "ווידג׳ט שעון ומזג אוויר גדול ושקוף, עם לוח בקרה, טיימרים ושעון Wear OS",
+    "en": "A big transparent clock and weather widget, with a dashboard, timers and a Wear OS tile"
    },
    "description": {
-    "he": "וידג׳ט אנדרואיד נייטיב שמשנים את גודלו: שעון פליפ / דיגיטלי / אנלוגי, מזג אוויר עם מקסימום ומינימום ותחזית גשם, תאריך עברי ולועזי עם חגים, השעון המעורר הבא, אירועי יומן וזמני זריחה ושקיעה.",
-    "en": "A resizable native Android widget: flip / digital / analog clock, weather with max/min and a rain outlook, Hebrew and Gregorian dates with holidays, the next alarm, calendar events and sunrise/sunset."
+    "he": "אפליקציית אנדרואיד נייטיב שבנויה סביב ווידג׳ט ענק, שקוף ובגודל משתנה: שעון פליפ / דיגיטלי / אנלוגי, מזג אוויר עם תחזית גשם, תאריך עברי ולועזי עם חגים, השעון המעורר הבא ואירועי יומן. באפליקציה לוח בקרה עם כרטיסים (היום והבא, מזג אוויר, מקומות, אירועים, שקיעה והדלקת נרות, צעדים, שעונים בעולם, מפה), שעוני עצר וטיימרים, מצב שבת וחג, פרשת השבוע וספירת העומר, וגיבוי. כולל גם אריח תאריך לשעון Wear OS.",
+    "en": "A native Android app built around a huge, transparent, resizable widget: flip / digital / analog clock, weather with a rain outlook, Hebrew and Gregorian dates with holidays, the next alarm and calendar events. The app adds a dashboard of cards (today and next, weather, places, events, sunset and candle lighting, steps, world clocks, map), stopwatches and timers, Shabbat and Yom Tov mode, the weekly portion and Omer count, and backup. It also includes a date tile for a Wear OS watch."
    },
    "highlights": {
     "he": [
-     "שעון פליפ, דיגיטלי או אנלוגי בשקיפות מלאה",
-     "מזג אוויר עם תחזית גשם",
-     "תאריך עברי, חגים והשעון המעורר הבא",
-     "באנר אירועי יומן ואזורי זמן נוספים"
+     "שעון פליפ, דיגיטלי או אנלוגי בשקיפות מלאה, ולכל ווידג׳ט הגדרות משלו",
+     "לוח בקרה עם כרטיס \"היום והבא\": חג, מזג אוויר, שעון מעורר, אירועים וטיימרים ברשימה אחת",
+     "מצב שבת וחג, פרשת השבוע, ספירת העומר והתראת הדלקת נרות",
+     "טיימר מרווחים (עבודה / מנוחה / סבבים), שעוני עצר וטיימרים מרובים",
+     "גיבוי לקובץ, קיצורי דרך ושיתוף האפליקציה בוואטסאפ ובמייל",
+     "אריח תאריך לשעון Wear OS (קובץ APK נפרד באותו עמוד)"
     ],
     "en": [
-     "Flip, digital or analog clock with full transparency",
-     "Weather with a rain outlook",
-     "Hebrew date, holidays and the next alarm",
-     "A calendar-events banner and extra time zones"
+     "Flip, digital or analog clock with full transparency, and separate settings per widget",
+     "A dashboard with a \"Today and next\" card: holiday, weather, alarm, events and timers in one list",
+     "Shabbat and Yom Tov mode, the weekly portion, Omer count and a candle-lighting alert",
+     "An interval timer (work / rest / rounds), plus several stopwatches and timers",
+     "Backup to a file, shortcuts, and sharing the app on WhatsApp or e-mail",
+     "A date tile for a Wear OS watch (a separate APK on the same page)"
     ]
    },
    "platforms": [
@@ -1364,35 +1388,47 @@
     "weather",
     "hebrew-calendar",
     "calendar",
-    "time"
+    "time",
+    "timer",
+    "wearos"
    ],
    "status": "beta",
    "released": "2026-11-19",
-   "updated": "2026-11-19",
+   "updated": "2026-11-22",
    "color": "#0b2a3c",
    "icon": "art/icons/clockwise.svg",
    "links": {
     "releases": "https://github.com/ohadsam/clock_weather_widget/releases/tag/latest",
     "repo": "https://github.com/ohadsam/clock_weather_widget",
-    "changelog": "https://github.com/ohadsam/clock_weather_widget/blob/main/docs/CHANGELOG.md"
+    "changelog": "https://github.com/ohadsam/clock_weather_widget/blob/main/docs/CHANGELOG.md",
+    "apk": "https://github.com/ohadsam/clock_weather_widget/releases/download/latest/ClockWise.apk",
+    "sha": "https://github.com/ohadsam/clock_weather_widget/releases/download/latest/ClockWise.apk.sha256"
    },
    "apk": {
-    "state": "page",
+    "state": "direct",
     "pkg": "com.clockweather.app",
     "minAndroid": 8,
     "note": {
-     "he": "גרסת בנייה אחרונה (Pre-release): בוחרים את קובץ ה-APK מהעמוד.",
-     "en": "The latest build (pre-release): pick the APK from the page."
+     "he": "זו גרסת Pre-release שמתעדכנת בכל שינוי. באותו עמוד ההורדות יש גם ClockWiseWear.apk לשעון Wear OS.",
+     "en": "This is a pre-release that updates with every change. The same release page also has ClockWiseWear.apk for a Wear OS watch."
     }
    },
    "shots": [],
-   "version": "0.1.0",
+   "version": "0.4.0",
    "whatsNew": {
     "he": [
-     "גרסה ראשונה: וידג׳ט שעון ומזג אוויר."
+     "כרטיס חדש \"היום והבא\" בלוח הבקרה: חג, מזג אוויר, שעון מעורר, אירועים, טיימרים ושקיעה / הדלקת נרות ברשימה אחת",
+     "קיצורי דרך, התראת הדלקת נרות, גיבוי לקובץ, ושיתוף האפליקציה בוואטסאפ ובמייל",
+     "אריח תאריך ומזג אוויר לשעון Wear OS",
+     "טיימר מרווחים (עבודה / מנוחה / סבבים) וקריאה ישירה של אירועים מאפליקציית \"אירועים מיוחדים\"",
+     "התראת \"השבת יצאה\", ושורת איכות אוויר / UV / אבקנים אופציונלית"
     ],
     "en": [
-     "First version: the clock and weather widget."
+     "New dashboard card \"Today and next\": holiday, weather, alarm, next events, timers, special events and sunset / candle lighting in one list.",
+     "Launcher shortcuts, candle-lighting notification, backup to/from a file, upcoming events on the watch tile.",
+     "Analog dial shows the daylight arc; rain / snow over the dashboard weather card; holiday picture and style preview animate in.",
+     "Watch tile with the phone's weather and running timers (Data Layer link; read-only).",
+     "Share the app directly by WhatsApp or e-mail (next to link / APK) in Settings -> Updates."
     ]
    },
    "source": {
@@ -1466,11 +1502,13 @@
    "setup": {
     "he": [
      "זהו ווידג׳ט: אחרי ההתקנה לוחצים ארוכות על מסך הבית ← וידג׳טים ← ClockWise, וגוררים. אפשר לשנות גודל.",
-     "כל ההרשאות אופציונליות; בלעדיהן הווידג׳ט עובד עם עיר קבועה."
+     "כל ההרשאות אופציונליות; בלעדיהן הווידג׳ט עובד עם עיר קבועה.",
+     "שעון Wear OS: מורידים את ClockWiseWear.apk מאותו עמוד release ומתקינים אותו על השעון (דרך אפליקציית השעון של היצרן או ADB)."
     ],
     "en": [
      "This is a widget: after installing, long-press the home screen → Widgets → ClockWise, and drag it. You can resize it.",
-     "Every permission is optional; without them the widget works with a fixed city."
+     "Every permission is optional; without them the widget works with a fixed city.",
+     "Wear OS watch: download ClockWiseWear.apk from the same release page and install it on the watch (through the watch maker's app or ADB)."
     ]
    }
   },

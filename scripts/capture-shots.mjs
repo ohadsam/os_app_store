@@ -9,7 +9,7 @@ const PLAN = { // id -> { root, steps: [{ name, hash?, click?, eval? }] }
   sonrise: { root: 'morning_organizer/web', steps: [{ name: 'home' }, { name: 'guide', hash: '#/guide' }, { name: 'settings', hash: '#/settings' }] },
   findmycar: { root: 'find_my_car', steps: [{ name: 'home' }, { name: 'history', click: '#navBtnHistory' }, { name: 'vehicles', click: '#navBtnSettings' }] },
   kodesh: { root: 'kodesh-app', steps: [{ name: 'tehilim', click: '#t-tehilim' }, { name: 'lashon', click: '#t-lashon' }, { name: 'daf', click: '#t-daf' }] },
-  seating: { root: 'table_orginizer', steps: [{ name: 'planner', eval: "document.getElementById('btnLoadDemo')?.click()" }] },
+  seating: { root: 'table_orginizer', steps: [{ name: 'planner', eval: "(async () => { document.getElementById('btnLoadDemo')?.click(); await new Promise((r) => setTimeout(r, 2800)); document.querySelector('.sw-close')?.click(); document.getElementById('hintsContainer')?.replaceChildren(); document.querySelectorAll('.toast').forEach((t) => t.remove()); })()" }] },
 };
 // Best-effort: closes welcome / what's-new / error dialogs (the apps' first-run screens) so the shots show the real app.
 const DISMISS = '^\\W*(דלג|הבנתי|לא עכשיו|בואו נתחיל|סגור|סגירה|×|✕|✖|x$|close|got it|skip)';

@@ -47,17 +47,18 @@ async function main() {
   const catalog = JSON.parse(readFileSync(FILE, 'utf8'));
   if (only.length) catalog.apps = catalog.apps.filter((a) => only.includes(a.id));
   const cache = new Map(), dates = new Map();
+  // Local mode: `updated` = date of the last commit that touched the version file (docs-only commits must not count as an update).
   async function load(repo, file) {
     const key = `${repo}/${file}`; if (cache.has(key)) return cache.get(key);
     let text = null;
-    if (local) { for (const d of [repo, repo.toLowerCase(), `../${repo.toLowerCase()}`]) { const p = join(local, d, file); if (existsSync(p)) { text = readFileSync(p, 'utf8'); if (!dates.has(repo)) { try { dates.set(repo, execFileSync('git', ['-C', join(local, d), 'log', '-1', '--format=%cs'], { encoding: 'utf8' }).trim()); } catch { /* no git */ } } break; } } }
+    if (local) { for (const d of [repo, repo.toLowerCase(), `../${repo.toLowerCase()}`]) { const p = join(local, d, file); if (existsSync(p)) { text = readFileSync(p, 'utf8'); if (!dates.has(key)) { try { dates.set(key, execFileSync('git', ['-C', join(local, d), 'log', '-1', '--format=%cs', '--', file], { encoding: 'utf8' }).trim()); } catch { /* no git */ } } break; } } }
     else { try { const r = await fetch(`https://raw.githubusercontent.com/ohadsam/${repo}/main/${file}`, { headers: token ? { authorization: `Bearer ${token}` } : {} }); text = r.ok ? await r.text() : null; } catch { text = null; } }
     cache.set(key, text); return text;
   }
   for (const a of catalog.apps) if (a.source) { await load(a.source.repo, a.source.file); if (a.source.changelog) await load(a.source.repo, a.source.changelog); }
   const today = arg('--date') || new Date().toISOString().slice(0, 10);
   const { changes, skipped } = syncCatalog(catalog, (r, f) => cache.get(`${r}/${f}`) ?? null, today);
-  if (local) for (const c of changes) { const app = catalog.apps.find((a) => a.id === c.id), d = dates.get(app.source.repo); if (d) app.updated = d; }
+  if (local) for (const c of changes) { const app = catalog.apps.find((a) => a.id === c.id), d = dates.get(`${app.source.repo}/${app.source.file}`); if (d) app.updated = d; }
   for (const c of changes) console.log(`${check || !write ? 'OUT OF DATE' : 'updated'}: ${c.id} ${c.from} -> ${c.to}`);
   for (const s of skipped) console.log(`skipped: ${s} (private, offline or moved)`);
   if (!changes.length) console.log('catalog is up to date');

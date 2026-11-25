@@ -60,7 +60,7 @@ test('sorting: recently updated (default), newest, by name; stable and language 
 });
 test('primary action, update badge and recency', () => {
   const by = (id) => cat.apps.find((a) => a.id === id);
-  assert.equal(primaryAction(by('stepup')), 'open'); assert.equal(primaryAction(by('special-events')), 'download'); assert.equal(primaryAction(by('clockwise')), 'releases'); assert.equal(primaryAction(by('file-manager')), 'details');
+  assert.equal(primaryAction(by('stepup')), 'open'); assert.equal(primaryAction(by('special-events')), 'download'); assert.equal(primaryAction(by('clockwise')), 'download'); assert.equal(primaryAction({ links: { web: null }, apk: { state: 'page' } }), 'releases'); assert.equal(primaryAction(by('file-manager')), 'details');
   assert.equal(needsUpdate(by('stepup'), { stepup: '0.1.0' }), true); assert.equal(needsUpdate(by('stepup'), { stepup: by('stepup').version }), false); assert.equal(needsUpdate(by('stepup'), {}), false);
   const day = Date.parse('2026-11-24T12:00:00Z'); assert.equal(daysSince('2026-11-22', day), 2); assert.equal(isRecent({ updated: '2026-11-20' }, day), true); assert.equal(isRecent({ updated: '2026-09-01' }, day), false);
   assert.equal(norm('שָׁלוֹם "א"'), 'שלום א');
