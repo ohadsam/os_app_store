@@ -1622,7 +1622,7 @@
     "state": "direct",
     "pkg": "com.ohadsam.tehilim",
     "minAndroid": 8,
-    "private": true,
+    "private": false,
     "note": {
      "he": "",
      "en": ""

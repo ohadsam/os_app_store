@@ -67,7 +67,6 @@ Commit on the working branch, push; (owner authorised) push `main`; `ci.yml` gre
 - Install guide uses drawn phone illustrations, not real device screenshots (pending, see PENDING_CHATGPT_PROMPTS).
 - Native apps have no screenshots yet; the page says so.
 - The store cannot verify APK installs; it links to each app's own release.
-- Tehilim Daily's repository is private: its download needs a GitHub sign-in (flagged in the app page).
 
 ## Done means
 Five reviews run and fixed · catalog synced (every app checked) · version bumped if code changed · CHANGELOG + guide + context docs + ledger updated · check/test/e2e green · CI green · (main) Pages deployed and verified.
