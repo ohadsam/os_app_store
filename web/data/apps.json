@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-11-24",
+ "generated": "2026-11-25",
  "tags": {
   "workout": {
    "he": "אימון",
@@ -859,7 +859,7 @@
     "free"
    ],
    "released": "2026-06-06",
-   "updated": "2026-06-25",
+   "updated": "2026-11-25",
    "color": "#9333ea",
    "icon": "art/icons/seating.svg",
    "links": {
@@ -884,7 +884,7 @@
      }
     }
    ],
-   "version": "2.1",
+   "version": "2.2",
    "status": "stable",
    "whatsNew": {
     "he": [],
@@ -1368,7 +1368,7 @@
    ],
    "status": "beta",
    "released": "2026-11-19",
-   "updated": "2026-11-19",
+   "updated": "2026-11-25",
    "color": "#0b2a3c",
    "icon": "art/icons/clockwise.svg",
    "links": {
@@ -1386,13 +1386,15 @@
     }
    },
    "shots": [],
-   "version": "0.1.0",
+   "version": "0.4.0",
    "whatsNew": {
-    "he": [
-     "גרסה ראשונה: וידג׳ט שעון ומזג אוויר."
-    ],
+    "he": [],
     "en": [
-     "First version: the clock and weather widget."
+     "New dashboard card \"Today and next\": holiday, weather, alarm, next events, timers, special events and sunset / candle lighting in one list.",
+     "Launcher shortcuts, candle-lighting notification, backup to/from a file, upcoming events on the watch tile.",
+     "Analog dial shows the daylight arc; rain / snow over the dashboard weather card; holiday picture and style preview animate in.",
+     "Watch tile with the phone's weather and running timers (Data Layer link; read-only).",
+     "Share the app directly by WhatsApp or e-mail (next to link / APK) in Settings -> Updates."
     ]
    },
    "source": {
