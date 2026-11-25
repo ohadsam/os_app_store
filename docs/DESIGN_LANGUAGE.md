@@ -4,3 +4,6 @@ Hard rules: original work only; all pictures in the store are AI-made or generat
 
 ## Delivered art (1.1.0)
 Logo: a storefront awning over a box with up and down arrows (indigo->cyan rounded square, white shape, amber accent). Hero: two shelves of rounded tiles with up/down arrows and soft clouds. States/install: tile + magnifier / cloud / retry / dashed phone frame; download / shield-check / sparkle. Categories: 48 grid duotone, `currentColor` stroke (rendered through a CSS mask so they follow the text colour). All SVG files use only allowed elements, no text.
+
+## Second ChatGPT round (1.3.0)
+Integrated: refreshed hero, About illustration, nine category badges (home category row). **Not integrated:** the logo lockups, wordmarks, share card and splash of this round spell the name "OS APPs and Downs" (with "and"); the owner decided on "OS APPs & Downs" - they must be regenerated with the ampersand (follow-up prompt in the chat / `docs/prompts/LOGO_LOCKUP_PROMPT.md`). The symbol (`icon.svg`) is unchanged.

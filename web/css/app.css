@@ -109,3 +109,8 @@ body{background-image:url(../art/store/bg/bg-light.svg)}
 .fs{border:1px solid var(--line);margin:0;min-inline-size:0}.fs legend{font-weight:800;padding-inline:6px}.radio{display:flex;align-items:center;gap:10px;min-block-size:var(--tap);cursor:pointer}.radio input{inline-size:22px;block-size:22px}
 .m-more{display:inline-block;padding:4px 8px;border-radius:6px;font-weight:700}
 .nav-link{font-size:.72rem}
+
+/* category badge row (AI-made badges) + about illustration */
+.cats{display:flex;flex-direction:column;gap:6px}.cat-row{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-block:4px}.cat-row::-webkit-scrollbar{display:none}
+.cat-btn{flex:none;display:flex;flex-direction:column;align-items:center;gap:4px;min-inline-size:76px;padding:6px 4px;border:2px solid transparent;border-radius:14px;background:transparent;color:var(--ink);font:inherit;font-size:.78rem;cursor:pointer}.cat-btn.on{background:var(--tint);border-color:var(--brand);font-weight:700}.cat-btn img{border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.about-art{display:flex;justify-content:center}

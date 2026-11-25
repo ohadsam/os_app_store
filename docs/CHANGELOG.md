@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.0
+- "Browse by category" row on the home page with nine new AI-made category badges (tap to filter, tap again to clear); refreshed hero banner and a new About-page illustration (second ChatGPT round, brand/illustration kit).
+
 ## 1.2.1
 - The store is now named "OS APPs & Downs" (with the ampersand) in the app, manifest, page title, About text and all docs.
 

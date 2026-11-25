@@ -63,6 +63,13 @@ await step('chips + filter sheet: platform, category, tags (AND), sort, favourit
   const names = await page.locator('section[aria-labelledby="h-all"] .card-title').allInnerTexts(); assert.deepEqual(names, [...names].sort((a, b) => a.localeCompare(b, 'he')));
   await page.click('.filter-btn'); await page.click('.sheet-body label.check'); assert.ok((await page.locator('.sheet-actions .btn-primary').innerText()).includes(' 0 ')); await page.keyboard.press('Escape'); await ctx.close();
 });
+await step('category badges: browse by category, toggle off, equals the filter sheet', async () => {
+  const { page, ctx } = await newPage();
+  assert.equal(await page.locator('.cat-btn').count(), 9); assert.ok(await imagesOk(page, '.cat-btn img'), 'badges loaded');
+  await page.click('.cat-btn:has-text("יהדות")'); assert.equal(await allCards(page), 2); assert.equal(await page.locator('.cat-btn.on').count(), 1);
+  await page.click('.filter-btn'); assert.equal(await page.inputValue('#f-cat'), 'faith'); await closeSheet(page);
+  await page.click('.cat-btn.on'); assert.equal(await allCards(page), APPS.length); await ctx.close();
+});
 await step('favourites: heart toggles, persists across reload, favourites-only filter', async () => {
   const { page, ctx } = await newPage();
   const heart = page.locator('section[aria-labelledby="h-all"] .card[data-app="stepup"] .fav');

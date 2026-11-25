@@ -5,6 +5,7 @@ import { APP_VERSION } from '../appVersion.js';
 import { checkForUpdate } from '../update.js';
 import { waLink, storeUrl } from '../share.js';
 import { icon } from '../icons.js';
+import { art } from './art.js';
 
 let deferredPrompt = null;
 addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; });
@@ -14,7 +15,7 @@ export function aboutPage(catalog) {
   const status = h('p', { class: 'note', role: 'status' });
   const year = new Date().getFullYear();
   const installBtn = h('button', { class: 'btn btn-ghost', type: 'button', onclick: async () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt = null; } else setChildren(status, t('about.installed')); } }, icon('download'), t('about.installStore'));
-  return h('section', { class: 'page about' }, h('h1', null, t('about.title')),
+  return h('section', { class: 'page about' }, h('h1', null, t('about.title')), h('div', { class: 'about-art' }, art('about/about-illustration', { w: 300, h: 200 })),
     block(t('about.what'), t('about.whatText')), block(t('about.name'), t('about.nameText')),
     block(t('about.rights'), t('about.rightsText', { year })), block(t('about.ai'), t('about.aiText')),
     block(t('about.contact'), t('about.contactText'), h('a', { class: 'btn btn-ghost', href: 'https://github.com/ohadsam/os_app_store/issues/new', target: '_blank', rel: 'noopener' }, icon('external'), t('about.contactBtn'))),

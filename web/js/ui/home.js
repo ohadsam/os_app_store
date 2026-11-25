@@ -13,11 +13,19 @@ const activeCount = () => (state.category ? 1 : 0) + state.tags.size + (state.on
 export function homePage(catalog, rerender) {
   const root = h('section', { class: 'page home' });
   const results = h('div', { class: 'results' });
+  const cats = h('section', { class: 'cats', 'aria-labelledby': 'h-cats' });
   const chips = h('div', { class: 'chips', role: 'group', 'aria-label': t('nav.store') });
   const filterBtn = h('button', { class: 'btn btn-ghost filter-btn', type: 'button', onclick: () => openFilters(catalog, () => { paint(); }) });
   const input = h('input', { class: 'search-input', type: 'search', id: 'q', placeholder: t('search.ph'), 'aria-label': t('search.label'), autocomplete: 'off', value: state.q, oninput: (e) => { state.q = e.target.value; paintResults(); } });
   const clear = h('button', { class: 'icon-btn search-clear', type: 'button', 'aria-label': t('search.clear'), onclick: () => { state.q = ''; input.value = ''; paintResults(); input.focus(); } }, icon('close'));
 
+  function paintCats() {
+    setChildren(cats, h('h2', { id: 'h-cats', class: 'sec' }, t('home.byCat')), h('div', { class: 'cat-row' }, Object.entries(catalog.categories).map(([k, v]) => {
+      const on = state.category === k;
+      return h('button', { class: `cat-btn${on ? ' on' : ''}`, type: 'button', 'aria-pressed': on ? 'true' : 'false', onclick: () => { state.category = on ? '' : k; paint(); } },
+        h('img', { src: `art/store/badges/badge-${k}.svg`, alt: '', width: 48, height: 48, loading: 'lazy' }), h('span', null, loc(v)));
+    })));
+  }
   function paintChips() {
     const c = platformCounts(catalog.apps);
     setChildren(chips, ['all', 'web', 'android'].map((p) => h('button', { class: `chip${state.platform === p ? ' on' : ''}`, type: 'button', 'aria-pressed': state.platform === p ? 'true' : 'false', onclick: () => { state.platform = p; paint(); } }, t(`plat.${p}`), h('span', { class: 'chip-n' }, c[p]))));
@@ -37,11 +45,11 @@ export function homePage(catalog, rerender) {
         list.length ? grid(list) : h('div', { class: 'empty' }, art('states/no-results', { w: 180, h: 135 }), h('b', null, t('home.none')), h('p', null, t('home.noneHint')), h('button', { class: 'btn btn-ghost', type: 'button', onclick: () => { Object.assign(state, { q: '', platform: 'all', category: '', onlyFavs: false, sort: 'updated' }); state.tags.clear(); rerender(); } }, t('filter.clear')))));
     announce(list.length === 1 ? t('home.count1') : t('home.count', { n: list.length }));
   }
-  function paint() { paintChips(); paintResults(); }
+  function paint() { paintCats(); paintChips(); paintResults(); }
   setChildren(root,
     h('div', { class: 'hero' }, h('h1', null, t('home.hero')), h('p', { class: 'lead' }, t('home.heroSub'))),
     h('div', { class: 'toolbar' }, h('div', { class: 'search' }, icon('search', 'search-ic'), input, clear), filterBtn),
-    chips, results);
+    cats, chips, results);
   paint();
   return root;
 }

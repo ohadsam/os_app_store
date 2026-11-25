@@ -1,2 +1,2 @@
 // Running version of the store; scripts/bump-version.mjs keeps it equal to version.json. Must not import anything.
-export const APP_VERSION = '1.2.1';
+export const APP_VERSION = '1.3.0';
