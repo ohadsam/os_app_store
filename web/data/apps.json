@@ -1050,14 +1050,14 @@
      "תצוגות קרובים, יום, שבוע, חודש ושנה",
      "תזכורות וברכות בנגיעה אחת בוואטסאפ ובמייל",
      "גיבוי (JSON, CSV, ICS), שיתוף והדפסה",
-     "וידג׳טים, סנכרון יומן ונעילת אפליקציה"
+     "וידג׳טים, סנכרון אוטומטי ליומן גוגל וייבוא חכם, ונעילת אפליקציה"
     ],
     "en": [
      "Hebrew or Gregorian dates, types, groups and tags",
      "Upcoming, day, week, month and year views",
      "One-tap reminders and greetings on WhatsApp and e-mail",
      "Backup (JSON, CSV, ICS), sharing and printing",
-     "Widgets, calendar sync and an app lock"
+     "Widgets, automatic Google Calendar sync with smart import, and an app lock"
     ]
    },
    "platforms": [
@@ -1097,9 +1097,17 @@
    "version": "0.34.0",
    "status": "stable",
    "whatsNew": {
-    "he": [],
+    "he": [
+     "סנכרון אוטומטי ליומן גוגל: האירועים נכתבים ליומן שבחרת ומתעדכנים לבד.",
+     "בכל אירוע אפשר להחליט: לפי ההגדרות, שמור ביומן או אל תשמור.",
+     "הרשומות מסומנות, ואפשר לייבא אותן בחזרה מיומן גוגל במדויק.",
+     "ייבוא חכם: זיהוי אירועים כפולים והתנגשויות, השוואה ובחירה בין יצירה, מיזוג והתעלמות."
+    ],
     "en": [
-     "שמירה ואוטו-סנכרון ליומן גוגל (CalendarContract, סימון SE1 בתיאור), הגדרה לכל אירוע (לפי ההגדרות/שמור/אל תשמור, DB v11), ייבוא חכם עם זיהוי כפילויות והתנגשויות ומסך החלטה (צור חדש / מזג / התעלם)."
+     "Automatic Google Calendar sync: events are written to the calendar you pick and kept up to date.",
+     "Each event can follow the setting, always save to the calendar, or never save.",
+     "Entries carry the app's mark, so they can be imported back from Google Calendar exactly.",
+     "Smart import: finds duplicate and conflicting events, shows a comparison and lets you create, merge or ignore."
     ]
    },
    "source": {
@@ -1134,8 +1142,8 @@
     {
      "id": "calendar",
      "why": {
-      "he": "רק במסך סנכרון היומן.",
-      "en": "Only on the calendar-sync screen."
+      "he": "במסך סנכרון היומן, ובסנכרון האוטומטי ליומן גוגל אם הפעלת אותו.",
+      "en": "On the calendar-sync screen, and for automatic Google Calendar sync if you turn it on."
      }
     },
     {
