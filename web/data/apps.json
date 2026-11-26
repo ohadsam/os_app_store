@@ -1033,11 +1033,11 @@
   {
    "id": "special-events",
    "name": {
-    "he": "אירועים מיוחדים",
-    "en": "Special Events"
+    "he": "PresentSimple",
+    "en": "PresentSimple"
    },
    "tagline": {
-    "he": "ימי הולדת, נישואין ואזכרות עם לוח עברי, תזכורות וברכות",
+    "he": "ימי הולדת, נישואין ואזכרות עם לוח עברי, תזכורות וברכות — בנגיעה אחת",
     "en": "Birthdays, anniversaries and memorials with a Hebrew calendar, reminders and greetings"
    },
    "description": {
@@ -1050,14 +1050,16 @@
      "תצוגות קרובים, יום, שבוע, חודש ושנה",
      "תזכורות וברכות בנגיעה אחת בוואטסאפ ובמייל",
      "גיבוי (JSON, CSV, ICS), שיתוף והדפסה",
-     "וידג׳טים, סנכרון אוטומטי ליומן גוגל וייבוא חכם, ונעילת אפליקציה"
+     "וידג׳טים, סנכרון דו-כיווני ליומן גוגל וייבוא חכם, ונעילת אפליקציה",
+     "סיכום שנתי וממשק בעברית ובאנגלית"
     ],
     "en": [
      "Hebrew or Gregorian dates, types, groups and tags",
      "Upcoming, day, week, month and year views",
      "One-tap reminders and greetings on WhatsApp and e-mail",
      "Backup (JSON, CSV, ICS), sharing and printing",
-     "Widgets, automatic Google Calendar sync with smart import, and an app lock"
+     "Widgets, two-way Google Calendar sync with smart import, and an app lock",
+     "A year in review, and a Hebrew and English interface"
     ]
    },
    "platforms": [
@@ -1093,21 +1095,52 @@
      "en": ""
     }
    },
-   "shots": [],
-   "version": "0.34.0",
+   "shots": [
+    {
+     "file": "art/shots/special-events/upcoming.jpg",
+     "caption": {
+      "he": "אירועים קרובים עם ספירה לאחור",
+      "en": "Upcoming events with a countdown"
+     }
+    },
+    {
+     "file": "art/shots/special-events/event.jpg",
+     "caption": {
+      "he": "פרטי אירוע: תאריך עברי ולועזי וגילאים",
+      "en": "Event details: Hebrew and Gregorian dates and ages"
+     }
+    },
+    {
+     "file": "art/shots/special-events/calendar.jpg",
+     "caption": {
+      "he": "לוח שנה עברי-לועזי עם האירועים שלך",
+      "en": "A Hebrew and Gregorian calendar with your events"
+     }
+    },
+    {
+     "file": "art/shots/special-events/review.jpg",
+     "caption": {
+      "he": "סיכום שנתי: אירועים, ברכות ומתנות",
+      "en": "Year in review: events, greetings and gifts"
+     }
+    }
+   ],
+   "version": "0.35.0",
    "status": "stable",
    "whatsNew": {
     "he": [
-     "סנכרון אוטומטי ליומן גוגל: האירועים נכתבים ליומן שבחרת ומתעדכנים לבד.",
-     "בכל אירוע אפשר להחליט: לפי ההגדרות, שמור ביומן או אל תשמור.",
-     "הרשומות מסומנות, ואפשר לייבא אותן בחזרה מיומן גוגל במדויק.",
-     "ייבוא חכם: זיהוי אירועים כפולים והתנגשויות, השוואה ובחירה בין יצירה, מיזוג והתעלמות."
+     "שם חדש ולוגו חדש: PresentSimple.",
+     "ממשק באנגלית (לפי שפת המכשיר או שפת האפליקציה בהגדרות המערכת).",
+     "סיכום שנתי: כמה אירועים, איזה חודש עמוס, כמה ברכות נשלחו ולמי, ומתנות.",
+     "סנכרון דו-כיווני: שם אירוע ששונה ביומן גוגל נקלט באפליקציה.",
+     "פתיחה מהירה יותר, אנימציות קצרות (קונפטי, פעמון, לב) ואיורים חדשים."
     ],
     "en": [
-     "Automatic Google Calendar sync: events are written to the calendar you pick and kept up to date.",
-     "Each event can follow the setting, always save to the calendar, or never save.",
-     "Entries carry the app's mark, so they can be imported back from Google Calendar exactly.",
-     "Smart import: finds duplicate and conflicting events, shows a comparison and lets you create, merge or ignore."
+     "New name and logo: PresentSimple.",
+     "English interface (by the device language, or the app language in system settings).",
+     "Year in review: how many events, the busiest month, how many greetings you sent and to whom, and gifts.",
+     "Two-way sync: an event renamed in Google Calendar is picked up by the app.",
+     "Faster start, short animations (confetti, bell, heart) and new illustrations."
     ]
    },
    "source": {
@@ -1424,7 +1457,7 @@
      "כרטיס חדש \"היום והבא\" בלוח הבקרה: חג, מזג אוויר, שעון מעורר, אירועים, טיימרים ושקיעה / הדלקת נרות ברשימה אחת",
      "קיצורי דרך, התראת הדלקת נרות, גיבוי לקובץ, ושיתוף האפליקציה בוואטסאפ ובמייל",
      "אריח תאריך ומזג אוויר לשעון Wear OS",
-     "טיימר מרווחים (עבודה / מנוחה / סבבים) וקריאה ישירה של אירועים מאפליקציית \"אירועים מיוחדים\"",
+     "טיימר מרווחים (עבודה / מנוחה / סבבים) וקריאה ישירה של אירועים מאפליקציית \"PresentSimple\"",
      "התראת \"השבת יצאה\", ושורת איכות אוויר / UV / אבקנים אופציונלית"
     ],
     "en": [
@@ -1474,8 +1507,8 @@
     {
      "id": "events_link",
      "why": {
-      "he": "אופציונלי: אירועים קרובים מאפליקציית \"אירועים מיוחדים\".",
-      "en": "Optional: upcoming events from the \"Special Events\" app."
+      "he": "אופציונלי: אירועים קרובים מאפליקציית \"PresentSimple\".",
+      "en": "Optional: upcoming events from the \"PresentSimple\" app."
      }
     },
     {
@@ -1974,16 +2007,16 @@
   "events_link": {
    "level": "ask",
    "name": {
-    "he": "אירועים מאפליקציית \"אירועים מיוחדים\"",
-    "en": "Events from the \"Special Events\" app"
+    "he": "אירועים מאפליקציית \"PresentSimple\"",
+    "en": "Events from the \"PresentSimple\" app"
    },
    "what": {
     "he": "להציג אירועים קרובים משם.",
     "en": "To show upcoming events from there."
    },
    "how": {
-    "he": "מופיע חלון הרשאה מותאם. לוחצים \"אפשר\". דורש שהאפליקציה \"אירועים מיוחדים\" מותקנת.",
-    "en": "A custom permission dialog appears. Tap \"Allow\". Needs the \"Special Events\" app installed."
+    "he": "מופיע חלון הרשאה מותאם. לוחצים \"אפשר\". דורש שהאפליקציה \"PresentSimple\" מותקנת.",
+    "en": "A custom permission dialog appears. Tap \"Allow\". Needs the \"PresentSimple\" app installed."
    }
   },
   "internet": {
