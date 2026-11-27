@@ -1125,22 +1125,20 @@
      }
     }
    ],
-   "version": "0.35.0",
+   "version": "0.36.0",
    "status": "stable",
    "whatsNew": {
     "he": [
-     "שם חדש ולוגו חדש: PresentSimple.",
-     "ממשק באנגלית (לפי שפת המכשיר או שפת האפליקציה בהגדרות המערכת).",
-     "סיכום שנתי: כמה אירועים, איזה חודש עמוס, כמה ברכות נשלחו ולמי, ומתנות.",
-     "סנכרון דו-כיווני: שם אירוע ששונה ביומן גוגל נקלט באפליקציה.",
-     "פתיחה מהירה יותר, אנימציות קצרות (קונפטי, פעמון, לב) ואיורים חדשים."
+     "תגי סוגי אירוע חדשים (עוגה, טבעות, נר זיכרון ועוד) כשלא בוחרים אייקון.",
+     "מסגרות כרטיס ברכה להדפסה (קלאסי, חגיגי, פשוט) בצבע ההדגשה שבחרתם.",
+     "הלוגו נבנה במסך הפתיחה, ואישור שליחת ברכה מונפש (מטוס נייר וסימון וי).",
+     "האנימציות נעצרות כשמכבים אנימציות במערכת."
     ],
     "en": [
-     "New name and logo: PresentSimple.",
-     "English interface (by the device language, or the app language in system settings).",
-     "Year in review: how many events, the busiest month, how many greetings you sent and to whom, and gifts.",
-     "Two-way sync: an event renamed in Google Calendar is picked up by the app.",
-     "Faster start, short animations (confetti, bell, heart) and new illustrations."
+     "New event-type badges (cake, rings, memorial candle and more) when no icon is chosen.",
+     "Greeting-card frames for printing (classic, festive, simple) in your accent colour.",
+     "The logo builds itself on the welcome screen, and sending a greeting is confirmed with a paper plane and a drawn check mark.",
+     "All animations stop when system animations are turned off."
     ]
    },
    "source": {
